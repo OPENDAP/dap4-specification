@@ -1472,8 +1472,9 @@ Simple attributes are defined using the following XML scheme.
 >
 >     <Attribute name="name" type="{atomicTypeName|EnumType fqn}" value="value"/>
 
-Attributes may also serve as containers for other attributes (and other
-containers). In this case, no type is specified, only a name.
+Attributes may also serve as containers for other attributes (and 
+other containers). In this case the type may be omitted, or if 
+the type is present the value is "Container".
 
 >     <Attribute name="name">
 >       <Namespace href="http://netcdf.ucar.edu/cf"/>
@@ -1486,6 +1487,12 @@ containers). In this case, no type is specified, only a name.
 >
 >       <Attribute name="name" type="...">
 >         ...
+>       </Attribute>
+>
+>       <Attribute name="Address" type="Container">
+>         <Attribute name="Street" type="String">
+>           ...
+>         </Attribute>
 >       </Attribute>
 >
 >     </Attribute>
