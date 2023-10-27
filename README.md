@@ -10,6 +10,8 @@ service*. This document outlines the fundamental concepts of DAP4, and
 servers) it highlights how DAP4 differs from DAP2. <s>In the following,
 DAP refers to DAP4 unless indicated otherwise.</s>
 
+[TOC]
+
 ## Contents
 
 -   [<span class="tocnumber">1</span> <span class="toctext">Data
