@@ -14,48 +14,39 @@ DAP refers to DAP4 unless indicated otherwise.</s>
 
 -   [<span class="tocnumber">1</span> <span class="toctext">Data
     Retrieval as a Web
-    Service</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Data_Retrieval_as_a_Web_Service)
--   [<span class="tocnumber">2</span> <span
-    class="toctext">Understanding the DAP Data
-    Model</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Understanding_the_DAP_Data_Model)
+    Service</span>](#Data_Retrieval_as_a_Web_Service)
+-   [<span class="tocnumber">2</span> <span class="toctext">Understanding the DAP Data
+    Model</span>](#Understanding_the_DAP_Data_Model)
     -   [<span class="tocnumber">2.1</span> <span class="toctext">A
         Brief Data-Model
-        Summary</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#A_Brief_Data-Model_Summary)
+        Summary</span>](#A_Brief_Data-Model_Summary)
     -   [<span class="tocnumber">2.2</span> <span class="toctext">A
         Rough Glossary of Data-Model
-        Entities</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#A_Rough_Glossary_of_Data-Model_Entities)
-    -   [<span class="tocnumber">2.3</span> <span
-        class="toctext">Higher-Level DAP Objects and
-        Extensions</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Higher-Level_DAP_Objects_and_Extensions)
+        Entities</span>](#A_Rough_Glossary_of_Data-Model_Entities)
+    -   [<span class="tocnumber">2.3</span> <span class="toctext">Higher-Level DAP Objects and
+        Extensions</span>](#Higher-Level_DAP_Objects_and_Extensions)
 -   [<span class="tocnumber">3</span> <span class="toctext">Client Use
     of a DAP Data
-    Source</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Client_Use_of_a_DAP_Data_Source)
-    -   [<span class="tocnumber">3.1</span> <span
-        class="toctext">High-Level Info about DAP Datasets: the
-        DMR</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#High-Level_Info_about_DAP_Datasets:_the_DMR)
-    -   [<span class="tocnumber">3.2</span> <span
-        class="toctext">Retrieving Content from DAP Datasets: Posing DAP
-        Requests</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Retrieving_Content_from_DAP_Datasets:_Posing_DAP_Requests)
+    Source</span>](https://#Client_Use_of_a_DAP_Data_Source)
+    -   [<span class="tocnumber">3.1</span> <span class="toctext">High-Level Info about DAP Datasets: the
+        DMR</span>](#High-Level_Info_about_DAP_Datasets:_the_DMR)
+    -   [<span class="tocnumber">3.2</span> <span class="toctext">Retrieving Content from DAP Datasets: Posing DAP
+        Requests</span>](#Retrieving_Content_from_DAP_Datasets:_Posing_DAP_Requests)
 -   [<span class="tocnumber">4</span> <span class="toctext">The Formal
     DAP
-    Specification</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#The_Formal_DAP_Specification)
+    Specification</span>](#The_Formal_DAP_Specification)
 -   [<span class="tocnumber">5</span> <span class="toctext">How DAP4
     Differs from
-    DAP2</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#How_DAP4_Differs_from_DAP2)
-    -   [<span class="tocnumber">5.1</span> <span
-        class="toctext">Data-Model
-        Changes</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Data-Model_Changes)
-    -   [<span class="tocnumber">5.2</span> <span
-        class="toctext">Changed
-        Responses</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Changed_Responses)
-    -   [<span class="tocnumber">5.3</span> <span
-        class="toctext">Response-Encoding
-        Changes</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Response-Encoding_Changes)
-    -   [<span class="tocnumber">5.4</span> <span
-        class="toctext">Changes in the Use of
-        HTTP</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Changes_in_the_Use_of_HTTP)
--   [<span class="tocnumber">6</span> <span
-    class="toctext">Acknowledgments</span>](https://docs.opendap.org/index.php?title=DAP4:_Overview#Acknowledgments)
+    DAP2</span>](#How_DAP4_Differs_from_DAP2)
+    -   [<span class="tocnumber">5.1</span> <span class="toctext">Data-Model
+        Changes</span>](#Data-Model_Changes)
+    -   [<span class="tocnumber">5.2</span> <span class="toctext">Changed
+        Responses</span>](#Changed_Responses)
+    -   [<span class="tocnumber">5.3</span> <span class="toctext">Response-Encoding
+        Changes</span>](#Response-Encoding_Changes)
+    -   [<span class="tocnumber">5.4</span> <span lass="toctext">Changes in the Use of
+        HTTP</span>](#Changes_in_the_Use_of_HTTP)
+-   [<span class="tocnumber">6</span> <span class="toctext">Acknowledgments</span>](#Acknowledgments)
 
 # <span id="Data_Retrieval_as_a_Web_Service" class="mw-headline"><span class="mw-headline-number">1</span> Data Retrieval as a Web Service</span>
 
