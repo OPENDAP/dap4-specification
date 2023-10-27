@@ -267,7 +267,7 @@ tabindex="0">hide</span>\] </span>
     Declarations</span>](#DMR_Declarations)
     -   [<span class="tocnumber">5.1</span> <span class="toctext">DMR
         XML
-        Format</span>](#DMR_XML_Format)
+        Format</span>](#5.1_DMR_XML_Format)
     -   [<span class="tocnumber">5.2</span> <span class="toctext">Names</span>](#Names)
     -   [<span class="tocnumber">5.3</span> <span class="toctext">Reserved
         Names</span>](#Reserved_Names)
