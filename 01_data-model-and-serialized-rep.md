@@ -1,5 +1,7 @@
 # DAP4: Specification Volume 1
 
+[TOC] 
+
 **The Data Access Protocol: DAP Version 4.0**
 
 **Volume 1: Data Model and Serialized Representation**
@@ -255,94 +257,69 @@ preferred.</td>
 <span class="toctoggle"> \[<span class="togglelink" role="button"
 tabindex="0">hide</span>\] </span>
 
--   [<span class="tocnumber">1</span> <span
-    class="toctext">Introduction</span>](#Introduction)
--   [<span class="tocnumber">2</span> <span
-    class="toctext">Requirements</span>](#Requirements)
+-   [<span class="tocnumber">1</span> <span class="toctext">Introduction</span>](#Introduction)
+-   [<span class="tocnumber">2</span> <span class="toctext">Requirements</span>](#Requirements)
 -   [<span class="tocnumber">3</span> <span class="toctext">Overall
     Operation</span>](#Overall_Operation)
--   [<span class="tocnumber">4</span> <span
-    class="toctext">Characterization of a Data
+-   [<span class="tocnumber">4</span> <span class="toctext">Characterization of a Data
     Source</span>](#Characterization_of_a_Data_Source)
 -   [<span class="tocnumber">5</span> <span class="toctext">DMR
     Declarations</span>](#DMR_Declarations)
     -   [<span class="tocnumber">5.1</span> <span class="toctext">DMR
         XML
         Format</span>](#DMR_XML_Format)
-    -   [<span class="tocnumber">5.2</span> <span
-        class="toctext">Names</span>](#Names)
-    -   [<span class="tocnumber">5.3</span> <span
-        class="toctext">Reserved
+    -   [<span class="tocnumber">5.2</span> <span class="toctext">Names</span>](#Names)
+    -   [<span class="tocnumber">5.3</span> <span class="toctext">Reserved
         Names</span>](#Reserved_Names)
     -   [<span class="tocnumber">5.4</span> <span class="toctext">Fully
         Qualified
         Names</span>](#Fully_Qualified_Names)
     -   [<span class="tocnumber">5.5</span> <span class="toctext">FQN
         References</span>](#FQN_References)
-    -   [<span class="tocnumber">5.6</span> <span
-        class="toctext">Definitional Declarations versus Data-Bearing
+    -   [<span class="tocnumber">5.6</span> <span class="toctext">Definitional Declarations versus Data-Bearing
         Declarations</span>](#Definitional_Declarations_versus_Data-Bearing_Declarations)
-    -   [<span class="tocnumber">5.7</span> <span
-        class="toctext">Dataset</span>](#Dataset)
-    -   [<span class="tocnumber">5.8</span> <span
-        class="toctext">Groups</span>](#Groups)
-    -   [<span class="tocnumber">5.9</span> <span
-        class="toctext">Dimensions</span>](#Dimensions)
-    -   [<span class="tocnumber">5.10</span> <span
-        class="toctext">Enumeration
+    -   [<span class="tocnumber">5.7</span> <span class="toctext">Dataset</span>](#Dataset)
+    -   [<span class="tocnumber">5.8</span> <span class="toctext">Groups</span>](#Groups)
+    -   [<span class="tocnumber">5.9</span> <span class="toctext">Dimensions</span>](#Dimensions)
+    -   [<span class="tocnumber">5.10</span> <span class="toctext">Enumeration
         Types</span>](#Enumeration_Types)
-    -   [<span class="tocnumber">5.11</span> <span
-        class="toctext">Atomic
+    -   [<span class="tocnumber">5.11</span> <span class="toctext">Atomic
         Types</span>](#Atomic_Types)
-    -   [<span class="tocnumber">5.12</span> <span
-        class="toctext">Container
+    -   [<span class="tocnumber">5.12</span> <span class="toctext">Container
         Types</span>](#Container_Types)
-    -   [<span class="tocnumber">5.13</span> <span
-        class="toctext">Variables</span>](#Variables)
-    -   [<span class="tocnumber">5.14</span> <span
-        class="toctext">Attributes and Arbitrary
+    -   [<span class="tocnumber">5.13</span> <span class="toctext">Variables</span>](#Variables)
+    -   [<span class="tocnumber">5.14</span> <span class="toctext">Attributes and Arbitrary
         XML</span>](#Attributes_and_Arbitrary_XML)
-    -   [<span class="tocnumber">5.15</span> <span
-        class="toctext">Namespaces</span>](#Namespaces)
+    -   [<span class="tocnumber">5.15</span> <span class="toctext">Namespaces</span>](#Namespaces)
 -   [<span class="tocnumber">6</span> <span class="toctext">Data
     Representation</span>](#Data_Representation)
-    -   [<span class="tocnumber">6.1</span> <span
-        class="toctext">Response
+    -   [<span class="tocnumber">6.1</span> <span class="toctext">Response
         Format</span>](#Response_Format)
     -   [<span class="tocnumber">6.2</span> <span class="toctext">The
         DAP4 Serialized
         Representation</span>](#The_DAP4_Serialized_Representation)
-    -   [<span class="tocnumber">6.3</span> <span
-        class="toctext">Example
+    -   [<span class="tocnumber">6.3</span> <span class="toctext">Example
         responses</span>](#Example_responses)
 -   [<span class="tocnumber">7</span> <span class="toctext">DAP4 Chunked
     Data
     Representation</span>](#DAP4_Chunked_Data_Representation)
-    -   [<span class="tocnumber">7.1</span> <span
-        class="toctext">Chunked Format
+    -   [<span class="tocnumber">7.1</span> <span class="toctext">Chunked Format
         Grammar</span>](#Chunked_Format_Grammar)
-    -   [<span class="tocnumber">7.2</span> <span
-        class="toctext">Lexical
+    -   [<span class="tocnumber">7.2</span> <span class="toctext">Lexical
         Structure</span>](#Lexical_Structure)
--   [<span class="tocnumber">8</span> <span
-    class="toctext">Constraints</span>](#Constraints)
-    -   [<span class="tocnumber">8.1</span> <span
-        class="toctext">Terminology used by this
+-   [<span class="tocnumber">8</span> <span class="toctext">Constraints</span>](#Constraints)
+    -   [<span class="tocnumber">8.1</span> <span class="toctext">Terminology used by this
         section</span>](#Terminology_used_by_this_section)
-    -   [<span class="tocnumber">8.2</span> <span
-        class="toctext">Subsetting
+    -   [<span class="tocnumber">8.2</span> <span class="toctext">Subsetting
         Constraints</span>](#Subsetting_Constraints)
-        -   [<span class="tocnumber">8.2.1</span> <span
-            class="toctext">Example: subsetting by variable or
+        -   [<span class="tocnumber">8.2.1</span> <span class="toctext">Example: subsetting by variable or
             field</span>](#Example:_subsetting_by_variable_or_field)
     -   [<span class="tocnumber">8.3</span> <span class="toctext">Array
         Subsetting in Index
         Space</span>](#Array_Subsetting_in_Index_Space)
-        -   [<span class="tocnumber">8.3.1</span> <span
-            class="toctext">Example: Subsetting in Index
+        -   [<span class="tocnumber">8.3.1</span> <span class="toctext">Example: Subsetting in Index
             Space</span>](#Example:_Subsetting_in_Index_Space)
-        -   [<span class="tocnumber">8.3.2</span> <span
-            class="toctext">More complex subsetting
+        -   [<span class="tocnumber">8.3.2</span> <span class="toctext">More complex subsetting
             examples</span>](#More_complex_subsetting_examples)
     -   [<span class="tocnumber">8.4</span> <span class="toctext">Array
         subsetting with Disjoint Index
@@ -350,99 +327,66 @@ tabindex="0">hide</span>\] </span>
     -   [<span class="tocnumber">8.5</span> <span class="toctext">How
         Sequences fit into this
         syntax</span>](#How_Sequences_fit_into_this_syntax)
-    -   [<span class="tocnumber">8.6</span> <span
-        class="toctext">Subsetting and Shared
+    -   [<span class="tocnumber">8.6</span> <span class="toctext">Subsetting and Shared
         Dimensions</span>](#Subsetting_and_Shared_Dimensions)
-        -   [<span class="tocnumber">8.6.1</span> <span
-            class="toctext">Example of this
+        -   [<span class="tocnumber">8.6.1</span> <span class="toctext">Example of this
             syntax</span>](#Example_of_this_syntax)
-        -   [<span class="tocnumber">8.6.2</span> <span
-            class="toctext">Examples of subsetting using shared
+        -   [<span class="tocnumber">8.6.2</span> <span class="toctext">Examples of subsetting using shared
             dimensions</span>](#Examples_of_subsetting_using_shared_dimensions)
-    -   [<span class="tocnumber">8.7</span> <span
-        class="toctext">Constrained DMR
+    -   [<span class="tocnumber">8.7</span> <span class="toctext">Constrained DMR
         Objects</span>](#Constrained_DMR_Objects)
-        -   [<span class="tocnumber">8.7.1</span> <span
-            class="toctext">Enumerations</span>](#Enumerations)
-        -   [<span class="tocnumber">8.7.2</span> <span
-            class="toctext">Shared
+        -   [<span class="tocnumber">8.7.1</span> <span class="toctext">Enumerations</span>](#Enumerations)
+        -   [<span class="tocnumber">8.7.2</span> <span class="toctext">Shared
             Dimensions</span>](#Shared_Dimensions)
-        -   [<span class="tocnumber">8.7.3</span> <span
-            class="toctext">Variables</span>](#Variables_2)
-        -   [<span class="tocnumber">8.7.4</span> <span
-            class="toctext">Array
+        -   [<span class="tocnumber">8.7.3</span> <span class="toctext">Variables</span>](#Variables_2)
+        -   [<span class="tocnumber">8.7.4</span> <span class="toctext">Array
             Variables</span>](#Array_Variables)
-        -   [<span class="tocnumber">8.7.5</span> <span
-            class="toctext">Structure
+        -   [<span class="tocnumber">8.7.5</span> <span class="toctext">Structure
             Variables</span>](#Structure_Variables)
-        -   [<span class="tocnumber">8.7.6</span> <span
-            class="toctext">Sequence
+        -   [<span class="tocnumber">8.7.6</span> <span class="toctext">Sequence
             Variables</span>](#Sequence_Variables)
-        -   [<span class="tocnumber">8.7.7</span> <span
-            class="toctext">Groups</span>](#Groups_2)
-        -   [<span class="tocnumber">8.7.8</span> <span
-            class="toctext">Attributes</span>](#Attributes)
-    -   [<span class="tocnumber">8.8</span> <span
-        class="toctext">Filters</span>](#Filters)
-    -   [<span class="tocnumber">8.9</span> <span
-        class="toctext">Filters and more complex data
+        -   [<span class="tocnumber">8.7.7</span> <span class="toctext">Groups</span>](#Groups_2)
+        -   [<span class="tocnumber">8.7.8</span> <span class="toctext">Attributes</span>](#Attributes)
+    -   [<span class="tocnumber">8.8</span> <span class="toctext">Filters</span>](#Filters)
+    -   [<span class="tocnumber">8.9</span> <span class="toctext">Filters and more complex data
         types</span>](#Filters_and_more_complex_data_types)
-        -   [<span class="tocnumber">8.9.1</span> <span
-            class="toctext">Example: Filters on complex
+        -   [<span class="tocnumber">8.9.1</span> <span class="toctext">Example: Filters on complex
             types</span>](#Example:_Filters_on_complex_types)
--   [<span class="tocnumber">9</span> <span
-    class="toctext">References</span>](#References)
--   [<span class="tocnumber">10</span> <span
-    class="toctext">Appendices</span>](#Appendices)
-    -   [<span class="tocnumber">10.1</span> <span
-        class="toctext">Appendix 1. DAP4 DMR Syntax as a RELAX NG
+-   [<span class="tocnumber">9</span> <span class="toctext">References</span>](#References)
+-   [<span class="tocnumber">10</span> <span class="toctext">Appendices</span>](#Appendices)
+    -   [<span class="tocnumber">10.1</span> <span class="toctext">Appendix 1. DAP4 DMR Syntax as a RELAX NG
         Schema</span>](#Appendix_1._DAP4_DMR_Syntax_as_a_RELAX_NG_Schema)
-    -   [<span class="tocnumber">10.2</span> <span
-        class="toctext">Appendix 2. DAP4 RELAX NG Lexical
+    -   [<span class="tocnumber">10.2</span> <span class="toctext">Appendix 2. DAP4 RELAX NG Lexical
         Elements</span>](#Appendix_2._DAP4_RELAX_NG_Lexical_Elements)
-        -   [<span class="tocnumber">10.2.1</span> <span
-            class="toctext">Basic character set
+        -   [<span class="tocnumber">10.2.1</span> <span class="toctext">Basic character set
             definitions</span>](#Basic_character_set_definitions)
-        -   [<span class="tocnumber">10.2.2</span> <span
-            class="toctext">Ascii characters that may appear unescaped
+        -   [<span class="tocnumber">10.2.2</span> <span class="toctext">Ascii characters that may appear unescaped
             in
             Identifiers</span>](#Ascii_characters_that_may_appear_unescaped_in_Identifiers)
-        -   [<span class="tocnumber">10.2.3</span> <span
-            class="toctext">The Numeric Constant Classes: integer and
+        -   [<span class="tocnumber">10.2.3</span> <span class="toctext">The Numeric Constant Classes: integer and
             float</span>](#The_Numeric_Constant_Classes:_integer_and_float)
-        -   [<span class="tocnumber">10.2.4</span> <span
-            class="toctext">The String/URL Constant
+        -   [<span class="tocnumber">10.2.4</span> <span class="toctext">The String/URL Constant
             Class</span>](#The_String.2FURL_Constant_Class)
-        -   [<span class="tocnumber">10.2.5</span> <span
-            class="toctext">The Opaque Constant
+        -   [<span class="tocnumber">10.2.5</span> <span class="toctext">The Opaque Constant
             Class</span>](#The_Opaque_Constant_Class)
-        -   [<span class="tocnumber">10.2.6</span> <span
-            class="toctext">The Identifier
+        -   [<span class="tocnumber">10.2.6</span> <span class="toctext">The Identifier
             Class</span>](#The_Identifier_Class)
-        -   [<span class="tocnumber">10.2.7</span> <span
-            class="toctext">The Atomic Type
+        -   [<span class="tocnumber">10.2.7</span> <span class="toctext">The Atomic Type
             Class</span>](#The_Atomic_Type_Class)
-        -   [<span class="tocnumber">10.2.8</span> <span
-            class="toctext">The Fully Qualified Name
+        -   [<span class="tocnumber">10.2.8</span> <span class="toctext">The Fully Qualified Name
             Class</span>](#The_Fully_Qualified_Name_Class)
-    -   [<span class="tocnumber">10.3</span> <span
-        class="toctext">Appendix 2. DAP4 Type
+    -   [<span class="tocnumber">10.3</span> <span class="toctext">Appendix 2. DAP4 Type
         Definitions</span>](#Appendix_2._DAP4_Type_Definitions)
-    -   [<span class="tocnumber">10.4</span> <span
-        class="toctext">Appendix 3.
+    -   [<span class="tocnumber">10.4</span> <span class="toctext">Appendix 3.
         UTF-8</span>](#Appendix_3._UTF-8)
-    -   [<span class="tocnumber">10.5</span> <span
-        class="toctext">Appendix 4. LALR(1) Grammar for DMR using Bison
+    -   [<span class="tocnumber">10.5</span> <span class="toctext">Appendix 4. LALR(1) Grammar for DMR using Bison
         Notation</span>](#Appendix_4._LALR.281.29_Grammar_for_DMR_using_Bison_Notation)
-        -   [<span class="tocnumber">10.5.1</span> <span
-            class="toctext">Lexical Tokens for Bison
+        -   [<span class="tocnumber">10.5.1</span> <span class="toctext">Lexical Tokens for Bison
             Grammar</span>](#Lexical_Tokens_for_Bison_Grammar)
-    -   [<span class="tocnumber">10.6</span> <span
-        class="toctext">Appendix 5. LALR(1) Grammar for Constraints
+    -   [<span class="tocnumber">10.6</span> <span class="toctext">Appendix 5. LALR(1) Grammar for Constraints
         using Bison
         Notation</span>](#Appendix_5._LALR.281.29_Grammar_for_Constraints_using_Bison_Notation)
-        -   [<span class="tocnumber">10.6.1</span> <span
-            class="toctext">Lexical Tokens for Bison Grammar for
+        -   [<span class="tocnumber">10.6.1</span> <span class="toctext">Lexical Tokens for Bison Grammar for
             Constraints</span>](#Lexical_Tokens_for_Bison_Grammar_for_Constraints)
 
 ## <span id="Introduction" class="mw-headline"><span class="mw-headline-number">1</span> Introduction</span>
