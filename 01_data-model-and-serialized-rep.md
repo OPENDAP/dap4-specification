@@ -256,194 +256,194 @@ preferred.</td>
 tabindex="0">hide</span>\] </span>
 
 -   [<span class="tocnumber">1</span> <span
-    class="toctext">Introduction</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Introduction)
+    class="toctext">Introduction</span>](#Introduction)
 -   [<span class="tocnumber">2</span> <span
-    class="toctext">Requirements</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Requirements)
+    class="toctext">Requirements</span>](#Requirements)
 -   [<span class="tocnumber">3</span> <span class="toctext">Overall
-    Operation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Overall_Operation)
+    Operation</span>](#Overall_Operation)
 -   [<span class="tocnumber">4</span> <span
     class="toctext">Characterization of a Data
-    Source</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Characterization_of_a_Data_Source)
+    Source</span>](#Characterization_of_a_Data_Source)
 -   [<span class="tocnumber">5</span> <span class="toctext">DMR
-    Declarations</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DMR_Declarations)
+    Declarations</span>](#DMR_Declarations)
     -   [<span class="tocnumber">5.1</span> <span class="toctext">DMR
         XML
-        Format</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DMR_XML_Format)
+        Format</span>](#DMR_XML_Format)
     -   [<span class="tocnumber">5.2</span> <span
-        class="toctext">Names</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Names)
+        class="toctext">Names</span>](#Names)
     -   [<span class="tocnumber">5.3</span> <span
         class="toctext">Reserved
-        Names</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Reserved_Names)
+        Names</span>](#Reserved_Names)
     -   [<span class="tocnumber">5.4</span> <span class="toctext">Fully
         Qualified
-        Names</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names)
+        Names</span>](#Fully_Qualified_Names)
     -   [<span class="tocnumber">5.5</span> <span class="toctext">FQN
-        References</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#FQN_References)
+        References</span>](#FQN_References)
     -   [<span class="tocnumber">5.6</span> <span
         class="toctext">Definitional Declarations versus Data-Bearing
-        Declarations</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Definitional_Declarations_versus_Data-Bearing_Declarations)
+        Declarations</span>](#Definitional_Declarations_versus_Data-Bearing_Declarations)
     -   [<span class="tocnumber">5.7</span> <span
-        class="toctext">Dataset</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Dataset)
+        class="toctext">Dataset</span>](#Dataset)
     -   [<span class="tocnumber">5.8</span> <span
-        class="toctext">Groups</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Groups)
+        class="toctext">Groups</span>](#Groups)
     -   [<span class="tocnumber">5.9</span> <span
-        class="toctext">Dimensions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Dimensions)
+        class="toctext">Dimensions</span>](#Dimensions)
     -   [<span class="tocnumber">5.10</span> <span
         class="toctext">Enumeration
-        Types</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Enumeration_Types)
+        Types</span>](#Enumeration_Types)
     -   [<span class="tocnumber">5.11</span> <span
         class="toctext">Atomic
-        Types</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Atomic_Types)
+        Types</span>](#Atomic_Types)
     -   [<span class="tocnumber">5.12</span> <span
         class="toctext">Container
-        Types</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Container_Types)
+        Types</span>](#Container_Types)
     -   [<span class="tocnumber">5.13</span> <span
-        class="toctext">Variables</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Variables)
+        class="toctext">Variables</span>](#Variables)
     -   [<span class="tocnumber">5.14</span> <span
         class="toctext">Attributes and Arbitrary
-        XML</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Attributes_and_Arbitrary_XML)
+        XML</span>](#Attributes_and_Arbitrary_XML)
     -   [<span class="tocnumber">5.15</span> <span
-        class="toctext">Namespaces</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Namespaces)
+        class="toctext">Namespaces</span>](#Namespaces)
 -   [<span class="tocnumber">6</span> <span class="toctext">Data
-    Representation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Data_Representation)
+    Representation</span>](#Data_Representation)
     -   [<span class="tocnumber">6.1</span> <span
         class="toctext">Response
-        Format</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Response_Format)
+        Format</span>](#Response_Format)
     -   [<span class="tocnumber">6.2</span> <span class="toctext">The
         DAP4 Serialized
-        Representation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_DAP4_Serialized_Representation)
+        Representation</span>](#The_DAP4_Serialized_Representation)
     -   [<span class="tocnumber">6.3</span> <span
         class="toctext">Example
-        responses</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Example_responses)
+        responses</span>](#Example_responses)
 -   [<span class="tocnumber">7</span> <span class="toctext">DAP4 Chunked
     Data
-    Representation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Chunked_Data_Representation)
+    Representation</span>](#DAP4_Chunked_Data_Representation)
     -   [<span class="tocnumber">7.1</span> <span
         class="toctext">Chunked Format
-        Grammar</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Chunked_Format_Grammar)
+        Grammar</span>](#Chunked_Format_Grammar)
     -   [<span class="tocnumber">7.2</span> <span
         class="toctext">Lexical
-        Structure</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Lexical_Structure)
+        Structure</span>](#Lexical_Structure)
 -   [<span class="tocnumber">8</span> <span
-    class="toctext">Constraints</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Constraints)
+    class="toctext">Constraints</span>](#Constraints)
     -   [<span class="tocnumber">8.1</span> <span
         class="toctext">Terminology used by this
-        section</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Terminology_used_by_this_section)
+        section</span>](#Terminology_used_by_this_section)
     -   [<span class="tocnumber">8.2</span> <span
         class="toctext">Subsetting
-        Constraints</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Subsetting_Constraints)
+        Constraints</span>](#Subsetting_Constraints)
         -   [<span class="tocnumber">8.2.1</span> <span
             class="toctext">Example: subsetting by variable or
-            field</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Example:_subsetting_by_variable_or_field)
+            field</span>](#Example:_subsetting_by_variable_or_field)
     -   [<span class="tocnumber">8.3</span> <span class="toctext">Array
         Subsetting in Index
-        Space</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Array_Subsetting_in_Index_Space)
+        Space</span>](#Array_Subsetting_in_Index_Space)
         -   [<span class="tocnumber">8.3.1</span> <span
             class="toctext">Example: Subsetting in Index
-            Space</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Example:_Subsetting_in_Index_Space)
+            Space</span>](#Example:_Subsetting_in_Index_Space)
         -   [<span class="tocnumber">8.3.2</span> <span
             class="toctext">More complex subsetting
-            examples</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#More_complex_subsetting_examples)
+            examples</span>](#More_complex_subsetting_examples)
     -   [<span class="tocnumber">8.4</span> <span class="toctext">Array
         subsetting with Disjoint Index
-        Subsets</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Array_subsetting_with_Disjoint_Index_Subsets)
+        Subsets</span>](#Array_subsetting_with_Disjoint_Index_Subsets)
     -   [<span class="tocnumber">8.5</span> <span class="toctext">How
         Sequences fit into this
-        syntax</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#How_Sequences_fit_into_this_syntax)
+        syntax</span>](#How_Sequences_fit_into_this_syntax)
     -   [<span class="tocnumber">8.6</span> <span
         class="toctext">Subsetting and Shared
-        Dimensions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Subsetting_and_Shared_Dimensions)
+        Dimensions</span>](#Subsetting_and_Shared_Dimensions)
         -   [<span class="tocnumber">8.6.1</span> <span
             class="toctext">Example of this
-            syntax</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Example_of_this_syntax)
+            syntax</span>](#Example_of_this_syntax)
         -   [<span class="tocnumber">8.6.2</span> <span
             class="toctext">Examples of subsetting using shared
-            dimensions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Examples_of_subsetting_using_shared_dimensions)
+            dimensions</span>](#Examples_of_subsetting_using_shared_dimensions)
     -   [<span class="tocnumber">8.7</span> <span
         class="toctext">Constrained DMR
-        Objects</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Constrained_DMR_Objects)
+        Objects</span>](#Constrained_DMR_Objects)
         -   [<span class="tocnumber">8.7.1</span> <span
-            class="toctext">Enumerations</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Enumerations)
+            class="toctext">Enumerations</span>](#Enumerations)
         -   [<span class="tocnumber">8.7.2</span> <span
             class="toctext">Shared
-            Dimensions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Shared_Dimensions)
+            Dimensions</span>](#Shared_Dimensions)
         -   [<span class="tocnumber">8.7.3</span> <span
-            class="toctext">Variables</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Variables_2)
+            class="toctext">Variables</span>](#Variables_2)
         -   [<span class="tocnumber">8.7.4</span> <span
             class="toctext">Array
-            Variables</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Array_Variables)
+            Variables</span>](#Array_Variables)
         -   [<span class="tocnumber">8.7.5</span> <span
             class="toctext">Structure
-            Variables</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Structure_Variables)
+            Variables</span>](#Structure_Variables)
         -   [<span class="tocnumber">8.7.6</span> <span
             class="toctext">Sequence
-            Variables</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Sequence_Variables)
+            Variables</span>](#Sequence_Variables)
         -   [<span class="tocnumber">8.7.7</span> <span
-            class="toctext">Groups</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Groups_2)
+            class="toctext">Groups</span>](#Groups_2)
         -   [<span class="tocnumber">8.7.8</span> <span
-            class="toctext">Attributes</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Attributes)
+            class="toctext">Attributes</span>](#Attributes)
     -   [<span class="tocnumber">8.8</span> <span
-        class="toctext">Filters</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Filters)
+        class="toctext">Filters</span>](#Filters)
     -   [<span class="tocnumber">8.9</span> <span
         class="toctext">Filters and more complex data
-        types</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Filters_and_more_complex_data_types)
+        types</span>](#Filters_and_more_complex_data_types)
         -   [<span class="tocnumber">8.9.1</span> <span
             class="toctext">Example: Filters on complex
-            types</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Example:_Filters_on_complex_types)
+            types</span>](#Example:_Filters_on_complex_types)
 -   [<span class="tocnumber">9</span> <span
-    class="toctext">References</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#References)
+    class="toctext">References</span>](#References)
 -   [<span class="tocnumber">10</span> <span
-    class="toctext">Appendices</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendices)
+    class="toctext">Appendices</span>](#Appendices)
     -   [<span class="tocnumber">10.1</span> <span
         class="toctext">Appendix 1. DAP4 DMR Syntax as a RELAX NG
-        Schema</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_1._DAP4_DMR_Syntax_as_a_RELAX_NG_Schema)
+        Schema</span>](#Appendix_1._DAP4_DMR_Syntax_as_a_RELAX_NG_Schema)
     -   [<span class="tocnumber">10.2</span> <span
         class="toctext">Appendix 2. DAP4 RELAX NG Lexical
-        Elements</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_2._DAP4_RELAX_NG_Lexical_Elements)
+        Elements</span>](#Appendix_2._DAP4_RELAX_NG_Lexical_Elements)
         -   [<span class="tocnumber">10.2.1</span> <span
             class="toctext">Basic character set
-            definitions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Basic_character_set_definitions)
+            definitions</span>](#Basic_character_set_definitions)
         -   [<span class="tocnumber">10.2.2</span> <span
             class="toctext">Ascii characters that may appear unescaped
             in
-            Identifiers</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ascii_characters_that_may_appear_unescaped_in_Identifiers)
+            Identifiers</span>](#Ascii_characters_that_may_appear_unescaped_in_Identifiers)
         -   [<span class="tocnumber">10.2.3</span> <span
             class="toctext">The Numeric Constant Classes: integer and
-            float</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Numeric_Constant_Classes:_integer_and_float)
+            float</span>](#The_Numeric_Constant_Classes:_integer_and_float)
         -   [<span class="tocnumber">10.2.4</span> <span
             class="toctext">The String/URL Constant
-            Class</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_String.2FURL_Constant_Class)
+            Class</span>](#The_String.2FURL_Constant_Class)
         -   [<span class="tocnumber">10.2.5</span> <span
             class="toctext">The Opaque Constant
-            Class</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Opaque_Constant_Class)
+            Class</span>](#The_Opaque_Constant_Class)
         -   [<span class="tocnumber">10.2.6</span> <span
             class="toctext">The Identifier
-            Class</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Identifier_Class)
+            Class</span>](#The_Identifier_Class)
         -   [<span class="tocnumber">10.2.7</span> <span
             class="toctext">The Atomic Type
-            Class</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Atomic_Type_Class)
+            Class</span>](#The_Atomic_Type_Class)
         -   [<span class="tocnumber">10.2.8</span> <span
             class="toctext">The Fully Qualified Name
-            Class</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Fully_Qualified_Name_Class)
+            Class</span>](#The_Fully_Qualified_Name_Class)
     -   [<span class="tocnumber">10.3</span> <span
         class="toctext">Appendix 2. DAP4 Type
-        Definitions</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_2._DAP4_Type_Definitions)
+        Definitions</span>](#Appendix_2._DAP4_Type_Definitions)
     -   [<span class="tocnumber">10.4</span> <span
         class="toctext">Appendix 3.
-        UTF-8</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_3._UTF-8)
+        UTF-8</span>](#Appendix_3._UTF-8)
     -   [<span class="tocnumber">10.5</span> <span
         class="toctext">Appendix 4. LALR(1) Grammar for DMR using Bison
-        Notation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_4._LALR.281.29_Grammar_for_DMR_using_Bison_Notation)
+        Notation</span>](#Appendix_4._LALR.281.29_Grammar_for_DMR_using_Bison_Notation)
         -   [<span class="tocnumber">10.5.1</span> <span
             class="toctext">Lexical Tokens for Bison
-            Grammar</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Lexical_Tokens_for_Bison_Grammar)
+            Grammar</span>](#Lexical_Tokens_for_Bison_Grammar)
     -   [<span class="tocnumber">10.6</span> <span
         class="toctext">Appendix 5. LALR(1) Grammar for Constraints
         using Bison
-        Notation</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Appendix_5._LALR.281.29_Grammar_for_Constraints_using_Bison_Notation)
+        Notation</span>](#Appendix_5._LALR.281.29_Grammar_for_Constraints_using_Bison_Notation)
         -   [<span class="tocnumber">10.6.1</span> <span
             class="toctext">Lexical Tokens for Bison Grammar for
-            Constraints</span>](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Lexical_Tokens_for_Bison_Grammar_for_Constraints)
+            Constraints</span>](#Lexical_Tokens_for_Bison_Grammar_for_Constraints)
 
 ## <span id="Introduction" class="mw-headline"><span class="mw-headline-number">1</span> Introduction</span>
 
@@ -457,13 +457,13 @@ data model capable of representing a wide variety of existing data sets.
 
 The DAP builds upon a number of existing data representation schemes.
 Specifically, it is influenced by
-CDM<sup>\[[1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ref-1)\]</sup>,
+CDM<sup>\[[1](#Ref-1)\]</sup>,
 HDF5
-<sup>\[[2](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ref-2)\]</sup>,
+<sup>\[[2](#Ref-2)\]</sup>,
 DAP version
-2.0<sup>\[[3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ref-3)\]</sup>,
+2.0<sup>\[[3](#Ref-3)\]</sup>,
 and
-netCDF-4<sup>\[[5](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ref-5)\]</sup>.
+netCDF-4<sup>\[[5](#Ref-5)\]</sup>.
 
 The DAP is a protocol for access to data organized as variables. It is
 particularly suited to accesses by a client computer to data stored on
@@ -487,7 +487,7 @@ Earth sciences.
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" and "OPTIONAL" in this
 document are to be interpreted as described in RFC 2119.
-<sup>\[[7](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Ref-7)\]</sup>
+<sup>\[[7](#Ref-7)\]</sup>
 
 ## <span id="Overall_Operation" class="mw-headline"><span class="mw-headline-number">3</span> Overall Operation</span>
 
@@ -517,7 +517,7 @@ both the metadata about the request, but also the data that was
 requested. The DMR and the metadata part of the Data Response are
 represented using a specific XML \[16\] representation. The syntax of
 that representation is defined elsewhere in this document (Section
-[5.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names)).
+[5.3](#Fully_Qualified_Names)).
 
 The DAP returns error information using an Error response. If a request
 for any of the three basic responses cannot be completed then an Error
@@ -572,7 +572,7 @@ information that aids in the interpretation of data held in a variable.
 Variables, on the other hand, hold the primary content of a data source.
 
 Section
-[13](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_DMR_Syntax_as_a_RELAX_NG_Schema)
+[13](#DAP4_DMR_Syntax_as_a_RELAX_NG_Schema)
 provides a formal syntax for DAP DMR characterizations. It is defined
 using the RelaxNG standard \[13\] for describing the context-free syntax
 of a class of XML documents, the DMR in this case. It should be noted
@@ -580,7 +580,7 @@ that any syntax specification requires a specification of the lexical
 elements of the syntax. The XML specification \[16\] provides most of
 the lexical context for the syntax, but there are certain places where
 additional lexical elements must be used. Section
-[11](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Lexical_Elements)
+[11](#DAP4_Lexical_Elements)
 describes those additional lexical elements, and those elements are
 discussed at appropriate points in this specification.
 
@@ -669,7 +669,7 @@ Every object in a DAP4 Dataset has a Fully Qualified Name (FQN), which
 provides a way to unambiguously reference declarations in a dataset and
 which can be used in several contexts such as in the DMR in a constraint
 expression (see Section
-[8](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Constraints)).
+[8](#Constraints)).
 
 These FQNs follow the common conventions of names for lexically scoped
 identifiers. In DAP4 several kinds of lexical items provide lexical
@@ -677,7 +677,7 @@ scoping: Dataset, Groups, Structures, Sequences, Enumerations, and
 AttributeSets. Just as with hierarchical file systems or variables in
 many programming languages, a simple grammar formally defines how the
 names are built using the names of the FQN's components (see Section
-[10](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#FQN_Syntax)).
+[10](#FQN_Syntax)).
 
 The FQN for a "top-level" variable — as opposed to e.g. a field in a
 structure or sequence — is defined purely by the sequence of enclosing
@@ -792,7 +792,7 @@ defined escapes are as follows.
 Note that the escape character itself must be escaped. Also note that
 this form of escape using '\\' is independent of any required XML escape
 (Section
-[5.1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#XML_Escaping_Within_the_DMR)).
+[5.1](#XML_Escaping_Within_the_DMR)).
 
 ### <span id="FQN_References" class="mw-headline"><span class="mw-headline-number">5.5</span> FQN References</span>
 
@@ -836,7 +836,7 @@ attributes have the following semantics:
 -   *dmrVersion* – the string "1.0" currently.
 
 The body of the Dataset is the same as the body of a
-[5.7](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Groups),
+[5.7](#Groups),
 and semantically the Dataset acts like the outermost, root, group.
 
 ### <span id="Groups" class="mw-headline"><span class="mw-headline-number">5.8</span> Groups</span>
@@ -861,7 +861,7 @@ indicates that one should start in the root group, move to group g1
 within that root group, then to group g2 within group g1, and finally to
 group g3. This is more fully described in the section on Fully Qualified
 names (Section
-[5.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names)).
+[5.3](#Fully_Qualified_Names)).
 
 The order of declarations within a Group is fixed and must conform to
 this order.
@@ -906,7 +906,7 @@ name. Anonymous dimensions SHOULD NOT be declared.
 
 An enumeration type defines a set of names with specific values called
 enumeration constants. As will be seen in Section
-[5.12](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Variables),
+[5.12](#Variables),
 enumeration types may be used as the type for variables or attributes.
 The values that can be assigned to such typed objects must come from the
 set of enumeration constants.
@@ -930,7 +930,7 @@ An Enumeration type is declared using this XML form.
 1.  The optional "basetype" XML attribute defines the type for the value
     XML attribute of each enumeration constant. This basetype must be
     one of the integer types (see Section
-    [5.10.1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Integer_Types)).
+    [5.10.1](#Integer_Types)).
     If unspecified, then it defaults to the Atomic type "Int32".
 
 ### <span id="Atomic_Types" class="mw-headline"><span class="mw-headline-number">5.11</span> Atomic Types</span>
@@ -946,7 +946,7 @@ integer, floating-point, string, enumerations, and opaque.
 
 The integer types are summarized in the following table. The syntax for
 integer constants is defined in Section
-[11.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Numeric_Constant_Classes:_integer_and_float).
+[11.3](#The_Numeric_Constant_Classes:_integer_and_float).
 
 <table data-border="1" width="85%">
 <tbody>
@@ -1025,7 +1025,7 @@ The floating-point data types are summarized in Table 2. The two
 floating-point data types use IEEE 754 \[6\] to represent values. The
 two types correspond to ANSI C's float and double data types. The syntax
 for floating point constants is defined in Section
-[11.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Numeric_Constant_Classes:_integer_and_float).
+[11.3](#The_Numeric_Constant_Classes:_integer_and_float).
 
 <table data-border="1" width="85%">
 <tbody>
@@ -1052,7 +1052,7 @@ for floating point constants is defined in Section
 
 The string data types are summarized in Table 3. Again, the syntax for
 these is defined in Section
-[11.4](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_String.2FURL_Constant_Class)
+[11.4](#The_String.2FURL_Constant_Class)
 
 Strings are individually sized. This means that in an array of strings,
 for example, each instance of that string MAY be of a different size.
@@ -1213,7 +1213,7 @@ the information actually communicated between DAP servers and DAP
 clients. The serialized representation consists of two parts: the
 declaration of the type and the serialized encoding of its value(s). The
 data representation is presented in Section
-[6.1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Response_Format)".
+[6.1](#Response_Format)".
 
 *<u><span id="Arrays">Arrays</span></u>*
 
@@ -1268,7 +1268,7 @@ Note the use of two types of dimensions:
 
 A simple variable is one whose type is one of the Atomic Types (see
 Section
-[5.10](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Atomic_Types)).
+[5.10](#Atomic_Types)).
 The name of the Atomic Type (Int32 in this example) is used as the XML
 element name. Within the body of that element, it is possible to specify
 zero or more dimension references. A dimension reference
@@ -1317,7 +1317,7 @@ Structure typed variable is as follows.
 >     </Structure>
 
 The Structure contains within it a list of variable definitions (Section
-[5.12](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Variables)).
+[5.12](#Variables)).
 For discussion convenience, each such variable may be referred to as a
 "field" of the Structure. The list of fields may optionally be followed
 with a list of dimension references indicating the dimensions of the
@@ -1347,7 +1347,7 @@ The XML scheme for a Sequence typed variable is as follows.
 >     </Sequence>
 
 The Sequence contains within it a list of variable definitions (Section
-[5.12](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Variables)).
+[5.12](#Variables)).
 For discussion convenience, each such variable may be referred to as a
 "field" of the Sequence. The list of fields may optionally be followed
 with a list of dimension references indicating the dimensions of the
@@ -1504,7 +1504,7 @@ with four components:
 This differs slightly from DAP2 Attributes because the namespace feature
 has been added, although clients can choose to ignore it. For more about
 namespaces, refer to Section
-[5.14](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Namespaces).
+[5.14](#Namespaces).
 The intent of including the namespace information is to simplify
 interactions with semantic web applications where certain schemas or
 standards have formal definitions of attributes.
@@ -1537,7 +1537,7 @@ source use a particular semantic metadata convention or standard.
     declaration.
 4.  Attribute value constants MUST conform to the appropriate constant
     format for the given attribute type and as defined in Section
-    [11](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Lexical_Elements).
+    [11](#DAP4_Lexical_Elements).
 5.  Attribute containers may may only contain attributes. Container
     attributes may not have values; only lowest level (leaf) attributes
     may have values.
@@ -1658,7 +1658,7 @@ for performing byte-swapping operations needed to compute using the
 values retrieved.
 
 The Data Response is encoded using chunking scheme (see Section
-[6.2](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#How_the_Chunked_Encoding_Affects_the_Data_Response_Format)).
+[6.2](#How_the_Chunked_Encoding_Affects_the_Data_Response_Format)).
 that breaks it into N parts where each part is prefixed with a chunk
 type and chunk byte count header. Chunk types include data and error
 types, making it simple for servers to indicate to clients that an error
@@ -1692,7 +1692,7 @@ serialized data. Specifically, the following attributes are defined.
 1.  &lt;Attribute name="\_DAP4\_Checksum\_CRC32" type="Int32"/&gt; —
     this attribute may be attached to each top-level variable to show
     the CRC-32 checksum of the content of that data. See Section
-    [6.2](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_DAP4_Serialized_Representation)
+    [6.2](#The_DAP4_Serialized_Representation)
     for more information.
 2.  &lt;Attribute name="\_DAP4\_Little\_Endian" type="UInt8"/&gt; — this
     attribute exists in the root group (the dataset) to indicate if the
@@ -1712,7 +1712,7 @@ Chunking format</span></u>* The data response format is technically
 independent of the chunking format
 
 (see
-[6.1.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#How_the_Chunked_Encoding_Affects_the_Data_Response_Format)).
+[6.1.3](#How_the_Chunked_Encoding_Affects_the_Data_Response_Format)).
 
 The assumption is that the DMR will be in a chunk of its own, the first
 chunk, and the serialized binary data will be in one or more additional
@@ -1750,7 +1750,7 @@ comfortably in memory but large enough to limit the amount of overhead
 spent by the software that encodes and decodes those chunks. When an
 error is detected, the normal flow of building chunks and sending the
 data along is broken and an error chunk should be sent (See Section
-[12](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Error_Response_Format)).
+[12](#DAP4_Error_Response_Format)).
 
 ### <span id="The_DAP4_Serialized_Representation" class="mw-headline"><span class="mw-headline-number">6.2</span> The DAP4 Serialized Representation</span>
 
@@ -1793,7 +1793,7 @@ have two parts.
 
 1.  A 64-bit signed *count* of the number of elements in the sequence
 2.  *Count* instances of the
-    [5.11.2](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#The_Sequence_Type)
+    [5.11.2](#The_Sequence_Type)
     for the Sequence.
 
 If a variable has dimensions, then the contents of each dimensioned data
@@ -2038,7 +2038,7 @@ each top-level variable in the DMR. This attribute is named
 In all cases, the checksum is computed over the serialized
 representation of each top-level variable. The checksum is computed
 before any chunking Section
-[7](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Chunked_Data_Representation))
+[7](#DAP4_Chunked_Data_Representation))
 is applied.
 
 If the request to the server is a dmr-only request, then the server will
@@ -2064,7 +2064,7 @@ is not suitable for detecting man-in-the-middle attacks.
 *<u><span id="Historical_Note">Historical Note</span></u>*
 
 The encoding described in Section
-[6.1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Response_Format)
+[6.1](#Response_Format)
 is similar to the serialization form of the DAP2 protocol \[3\], but has
 been extended to support arrays with a varying dimension and stripped of
 redundant information added by various XDR implementations.
@@ -2085,7 +2085,7 @@ easier to read. The real responses are more compact. Since this proposal
 is just about the form of the response - and it really focuses on the
 BLOB part - there is no mention of 'chunking.' For information on how
 this BLOB will/could be chunked. see Section
-[7](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Chunked_Data_Representation).
+[7](#DAP4_Chunked_Data_Representation).
 NB: Some poetic license used in the following and the checksums for
 single integer values seems silly, but these are really simple examples.
 
@@ -2229,7 +2229,7 @@ one element, respectively.
 An important capability for DAP4 is supporting clients in determining
 when a data transmission fails. This is especially difficult when
 sending binary data (Section
-[6.1](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Response_Format)).
+[6.1](#Response_Format)).
 In order to support such a capability, the DAP4 protocol uses a
 simplified variation on the HTTP/1.1 chunked transmission format \[9\]
 to serialize the data part of the response document so that errors are
@@ -2244,7 +2244,7 @@ to that outlined in HTTP/1.1. However, in addition to a prefix
 indicating the size of the chunk, DAP4 includes a chunk-type code. This
 provides a way for the receiver to know if the next chunk is part of the
 data response or if it contains an error response (Section
-[12](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#DAP4_Error_Response_Format)).
+[12](#DAP4_Error_Response_Format)).
 In the latter case, the client should assume that the data response has
 ended, even though the correct closing information was not provided.
 
@@ -2261,7 +2261,7 @@ chunk are decoded using the following steps.
 1.  Treat the 32 bit header a single, big-endian, unsigned integer.
 2.  Convert the integer to the local machine byte order by swapping
     bytes as necessary (Section
-    [6.2.3.2](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Byte_Swapping_Rules)).
+    [6.2.3.2](#Byte_Swapping_Rules)).
     Let the resulting integer be called H.
 3.  Compute the chunk type by the following expression: type = (H
     &gt;&gt; 24) & 0xff (Using C-language operators).
@@ -2423,7 +2423,7 @@ atomic-valued, scalar fields can be used in the filter expression.
 id  
 The name of a variable. These must be absolute, with some specific
 exceptions. Absolute names are fully qualified names (See Section
-[5.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names)).
+[5.3](#Fully_Qualified_Names)).
 
 ### <span id="Subsetting_Constraints" class="mw-headline"><span class="mw-headline-number">8.2</span> Subsetting Constraints</span>
 
@@ -3845,7 +3845,7 @@ the following lexical items.
 1.  Constants, namely: string, float, integer, character, and opaque.
 2.  Identifiers
 3.  Fully qualified names (also referred to as FQNs) (Section
-    [5.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names)).
+    [5.3](#Fully_Qualified_Names)).
 
 The specification is written using the extended POSIX regular expression
 notation \[11\] with some additions.
@@ -3958,7 +3958,7 @@ This list should be consistent with the atomic types in the grammar.
 >     EIDASCII = [0-9a-zA-Z!#$%()*+:;<=>?@\[\]\\^_`|{}~]
 
 This should be consistent with the definition in Section
-[5.3](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Fully_Qualified_Names).
+[5.3](#Fully_Qualified_Names).
 
 ## <span id="Appendix_2._DAP4_Type_Definitions" class="mw-headline"><span class="mw-headline-number">10.3</span> Appendix 2. DAP4 Type Definitions</span>
 
