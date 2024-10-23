@@ -1,0 +1,101 @@
+== DAP4 Extension: CSV Data Encoding and Response
+
+This document specifies the DAP4 CSV data encoding, how DAP4 servers can
+advertise support for the DAP4 CSV encoding, and how DAP4 clients can
+request DAP4 CSV encoded data responses.
+
+The DAP4 CSV data encoding represents DAP4 data as structured
+Comma-Separated Values (CSV) in UTF-8 text. Though based on the
+_text/csv_ media type described in RFC
+4180[https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#RFC_4180[RFC 4180]],
+the DAP4 CSV is more complex so that it can fully represent the more
+complex data structures of the DAP4 data model. Some structure beyond
+simple CSV is necessary to capture the DAP4 data structures.
+
+As with requests for data in the DAP4 binary data encoding described in
+Volume 1 of the DAP4 specification
+[https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#DAP4_Vol1[DAP4 Vol1]],
+requests for DAP4 CSV encoded data can be constrained to a subset by
+using a standard DAP4 Constraint Expression [DAP4 CE]
+
+=== Contents
+
+[.toctoggle]# [[.togglelink]#hide#] #
+
+* https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#DAP4_Extension_Details[[.tocnumber]#1#
+[.toctext]#DAP4 Extension Details#]
+* https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#Requesting_DAP4_CSV_Encoded_Data_Response[[.tocnumber]#2#
+[.toctext]#Requesting DAP4 CSV Encoded Data Response#]
+* https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#DAP4_CSV_Encoding[[.tocnumber]#3#
+[.toctext]#DAP4 CSV Encoding#]
+* https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#Normative_References[[.tocnumber]#4#
+[.toctext]#Normative References#]
+
+=== [#DAP4_Extension_Details .mw-headline]#[.mw-headline-number]#1# DAP4 Extension Details#
+
+The Role URI for the DAP4 CSV Data Encoding and Response extension is
+
+....
+http://services.opendap.org/dap4/extension/text-csv-data
+....
+
+DAP4 servers MUST include this role URI in a Dataset Service Response
+[DSR] _extension_ element to indicate that the DAP4 CSV Data Encoding
+and Response extension is supported for the dataset (?represented by
+that DSR?). DAP4 clients MAY check for DSR *extension* elements with
+this role URI to determine if the DAP4 CSV Data Encoding and Response
+extension is supported.
+
+Dataset Service Response [DSR] _extension_ elements must also contain a
+name and a description. The following are recommended text for the name
+and description:
+
+Name +
+DAP4 CSV Data Encoding and Response
+
+Description +
+This extension provides an encoding for representing DAP4 data as
+structured Comma-Separated Values (CSV) in UTF-8 text.
+
+=== [#Requesting_DAP4_CSV_Encoded_Data_Response .mw-headline]#[.mw-headline-number]#2# Requesting DAP4 CSV Encoded Data Response#
+
+____
+URL Suffix
+
+Media Type
+
+URL Example
+
+"`.dap`" or "`.dap.csv`"
+
+application/vnd.opendap.dap4.data+csv
+
+DAP4 CSV encoding
+
+http://server/path/dataset.nc.dap
+
+http://server/path/dataset.nc.dap.csv
+
+"`.dap.csv`"
+
+text/csv
+
+DAP4 CSV (UTF-8) Data encoding with generic media type
+
+http://server/path/dataset.nc.dap.csv
+____
+
+=== [#DAP4_CSV_Encoding .mw-headline]#[.mw-headline-number]#3# DAP4 CSV Encoding#
+
+=== [#Normative_References .mw-headline]#[.mw-headline-number]#4# Normative References#
+
+[RFC 4180] Common Format and MIME Type for Comma-Separated Values (CSV)
+Files
+
+[DAP4 Vol1]
+https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1[DAP4
+Volume 1: Data Model&#44; Persistent Representations&#44; and
+Constraints].
+
+{empty}[DAP4 Extensions] [DAP4:_Specification_Volume_1#Extensions|DAP4
+Volume 1, Section 9.3 Extensions]
