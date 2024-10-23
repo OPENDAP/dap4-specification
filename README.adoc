@@ -12,8 +12,7 @@ The primary and continuing purpose of DAP is to realize _remote,
 selective, data-retrieval as a widely-accepted and well-crafted Web
 service_. This document outlines the fundamental concepts of DAP4, and
 (targeting those who have already programmed DAP-compatible clients and
-servers) it highlights how DAP4 differs from DAP2. In the following, DAP
-refers to DAP4 unless indicated otherwise.
+servers) it highlights how DAP4 differs from DAP2.
 
 
 == Data Retrieval as a Web Service ==
