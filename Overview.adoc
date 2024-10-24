@@ -368,15 +368,15 @@ functions (beyond DAP’s core subsetting and filtering operations).
 
 *The specification is available at these links:*
 
-* https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1[Volume
-1: Data Model&#44; Persistent Representation&#44; and Constraints]
-* https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_2[Volume
+* link:#Data_Model[Volume1: Data Model&#44; Persistent Representation&#44; and Constraints]
+* link:#Web_Services[Volume
 2: Web Services Specification]
 * Extensions:
-** https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response[DAP4
+** link:#netcdf-encoding-response[NetCDF Data Response]
+** link:#CSV-encoding-response[DAP4
 Extension: CSV Data Encoding and Response]
-** https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response[DAP4
-Extension: Asynchronous Response]
+** link:#netcdf-async[DAP4
+Extension: netCDF Asynchronous Response]
 
 == How DAP4 Differs from DAP2 ==
 
