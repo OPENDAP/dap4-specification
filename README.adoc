@@ -579,4 +579,4 @@ Hankin (NOAA), Eric Kihn (NOAA), Chris Lynnes (NASA) and Rich Signell
 (USGS).
 
 Retrieved from
-“https://docs.opendap.org/index.php?title=DAP4:_Overview&oldid=10530”
+https://docs.opendap.org/index.php?title=DAP4:_Overview&oldid=10530
