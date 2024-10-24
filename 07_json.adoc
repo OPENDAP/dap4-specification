@@ -1,4 +1,4 @@
-= DAP4 Extension: JSON Data and Metadata Encoding
+= Extensions: JSON Data and Metadata Encoding
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

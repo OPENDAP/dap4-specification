@@ -1,4 +1,4 @@
-= DAP4 Extension: CSV Data Encoding and Response
+= Extensions: CSV Data Encoding and Response
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

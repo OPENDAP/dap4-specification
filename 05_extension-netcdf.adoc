@@ -1,4 +1,4 @@
-= DAP4 Extension: NetCDF Data Response
+= Extensions: NetCDF Data Response
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

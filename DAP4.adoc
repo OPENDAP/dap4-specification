@@ -1,0 +1,44 @@
+= The Data Access Protocol Version 4 (DAP4) Specification
+Copyright 2016 UCAR and OPeNDAP,Inc. 
+{docdate}
+:toc: left
+:toclevels: 5
+:numbered:
+:docinfo: shared
+:icons: font
+:tabsize: 4
+:indent: 4
+:doctype: book
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+:prewrap!:
+:homepage: www.opendap.org
+
+:leveloffset: +1
+
+// This document is an overview of the server.
+include::Overview.adoc[lines="1..2,7..-1"]
+
+// Volume 01
+[[Data_Model]]
+include::01_data-model-and-serialized-rep.adoc[lines="1,15..-1"]
+
+// Volume 02
+[[Web_Services]]
+include::03_spec-volume-2.adoc[lines="1,11..-1"]
+
+// CSV Extension
+[[CSV-encoding-response]]
+include::04_extension-csv.adoc[lines="1,8..-1"]
+
+// Netcdf Extension
+[[netcdf-encoding-response]]
+include::05_extension-netcdf.adoc[lines="1,8..-1"]
+
+// Netcdf Async
+[[netcdf-async]]
+include::06_extension-NETCDF_2.adoc[lines="1,8..-1"]
+
+// JSON extension
+[[json-extension]]
+include::07_json.adoc[lines="1,8..-1"]

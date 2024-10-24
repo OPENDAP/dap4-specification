@@ -1,4 +1,4 @@
-= DAP4: Specification Volume 1 Deltas
+= Deltas
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

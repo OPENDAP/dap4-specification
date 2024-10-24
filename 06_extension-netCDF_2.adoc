@@ -1,4 +1,4 @@
-= DAP4 Extension: Asynchronous Response
+= Extensions: Asynchronous Response
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

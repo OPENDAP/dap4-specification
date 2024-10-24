@@ -1,4 +1,5 @@
-= DAP4: Overview
+[overview]
+= Overview
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:

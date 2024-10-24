@@ -1,4 +1,4 @@
-= DAP4 Volume 1: Data Model and Serialized Representation
+= Data Model and Serialized Representation
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:
