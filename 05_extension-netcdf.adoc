@@ -1,3 +1,14 @@
-== DAP4 Extension: NetCDF Data Response
+= DAP4 Extension: NetCDF Data Response
+:Miguel Jimenez <mjimenez@opendap.org>:
+{docdate}
+:numbered:
+:toc:
+:stem:
+:source-highlighter: rouge
+The Data Access Protocol: DAP Version 4.0
+
+*Copyright 2016* link:https://www.ucar.edu/[UCAR] and link:https://www.opendap.org/[OPeNDAP,Inc]. 
+
+== DAP4 Extension Details ==
 
 There is currently no text in this page.
