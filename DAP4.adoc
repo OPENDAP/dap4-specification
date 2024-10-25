@@ -4,6 +4,7 @@ Copyright 2016 UCAR and OPeNDAP,Inc.
 :toc: left
 :toclevels: 5
 :numbered:
+:stem:
 :docinfo: shared
 :icons: font
 :tabsize: 4
@@ -25,7 +26,7 @@ include::01_data-model-and-serialized-rep.adoc[lines="1,15..-1"]
 
 // Volume 02
 [[Web_Services]]
-include::03_spec-volume-2.adoc[lines="1,11..-1"]
+include::03_spec-volume-2.adoc[lines="1,12..-1"]
 
 // CSV Extension
 [[CSV-encoding-response]]
@@ -42,3 +43,8 @@ include::06_extension-NETCDF_2.adoc[lines="1,8..-1"]
 // JSON extension
 [[json-extension]]
 include::07_json.adoc[lines="1,8..-1"]
+
+
+// Deltas
+[[deltas]]
+include::02_spec-volume-1-deltas.adoc[lines="1,8..-1"]

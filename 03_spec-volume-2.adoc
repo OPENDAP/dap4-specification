@@ -9,6 +9,20 @@ The Data Access Protocol: DAP Version 4.0
 
 *Copyright 2016* link:https://www.ucar.edu/[UCAR] and link:https://www.opendap.org/[OPeNDAP,Inc]. 
 
+*_Abstract_*
+
+_While Volume 1 of the DAP4 specification addresses the detailed
+semantics and structure of the DAP4 data and metadata content, this
+volume (Volume 2) details the manner in which clients can request things
+from a DAP4 server and what things the clients can expect to receive
+from a DAP4 server in response to their requests. The description of
+this interaction focuses on DAP4 clients and servers that are
+communicating via HTTP, and while this is perceived by the authors as
+the most common transport for DAP4 client/server interaction the
+specification is written in a broad enough manner to allow for other
+transport mechanisms._
+
+
 .*Contributors*
 [cols="35%,65%", stripes=even]
 |===
@@ -24,18 +38,6 @@ The Data Access Protocol: DAP Version 4.0
 |         | Nathan Potter (OPeNDAP)
 |===
 
-*_Abstract_*
-
-_While Volume 1 of the DAP4 specification addresses the detailed
-semantics and structure of the DAP4 data and metadata content, this
-volume (Volume 2) details the manner in which clients can request things
-from a DAP4 server and what things the clients can expect to receive
-from a DAP4 server in response to their requests. The description of
-this interaction focuses on DAP4 clients and servers that are
-communicating via HTTP, and while this is perceived by the authors as
-the most common transport for DAP4 client/server interaction the
-specification is written in a broad enough manner to allow for other
-transport mechanisms._
 
 .*Timeline of changes.*
 [cols="35%,65%", stripes=even]

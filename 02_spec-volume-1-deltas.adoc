@@ -5,8 +5,8 @@
 :stem:
 :source-highlighter: rouge
 :toc:
-Collection of emails going back to July 2013 regarding DAP4 and it’s implementation. 
 
+This document contains a collection of emails between the collaborators/developers going back to July 2013, regarding DAP4 and it’s implementation. These all concern links:#Data_Model[Volume 1].
 
 == Constraints, subsetting: unified syntax
 
