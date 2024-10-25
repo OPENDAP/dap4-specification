@@ -1,0 +1,23 @@
+sudo: required
+branches:
+  only:
+  - master
+env:
+  global:
+
+services:
+- docker
+before_install:
+- mkdir -p output
+- docker pull asciidoctor/docker-asciidoctor
+script:
+- GUIDE_VERSION=`cat VERSION`"-${TRAVIS_BUILD_NUMBER}"
+- echo ${GUIDE_VERSION}
+- docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor      asciidoctor
+  -a toc=left -a docinfo=shared -D /documents/output DAP4.adoc
+after_error:
+- docker logs asciidoc-to-html
+after_failure:
+- docker logs asciidoc-to-html
+after_success:
+- ./travis/deploy_to_gh_pages.sh
