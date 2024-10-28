@@ -1,4 +1,4 @@
-= Data Model and Serialized Representation
+= Data Model, Persistent Representations, and Constraints
 :Miguel Jimenez <mjimenez@opendap.org>:
 {docdate}
 :numbered:
