@@ -37,7 +37,7 @@ include::05_extension-netcdf.adoc[lines="1,12..-1"]
 
 // Netcdf Async
 [[netcdf-async]]
-include::06_extension-NETCDF_2.adoc[lines="1,12..-1"]
+include::06_extension-netCDF_2.adoc[lines="1,12..-1"]
 
 // JSON extension
 [[json-extension]]
