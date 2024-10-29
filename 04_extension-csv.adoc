@@ -7,9 +7,9 @@
 :source-highlighter: rouge
 The Data Access Protocol: DAP Version 4.0
 
-
 *Copyright 2016* link:https://www.ucar.edu/[UCAR] and link:https://www.opendap.org/[OPeNDAP,Inc]. 
 
+*_Abstract_*
 
 This document specifies the DAP4 CSV data encoding, how DAP4 servers can
 advertise support for the DAP4 CSV encoding, and how DAP4 clients can
@@ -17,17 +17,15 @@ request DAP4 CSV encoded data responses.
 
 The DAP4 CSV data encoding represents DAP4 data as structured
 Comma-Separated Values (CSV) in UTF-8 text. Though based on the
-_text/csv_ media type described in RFC
-4180[https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#RFC_4180[RFC 4180]],
+_text/csv_ media type described in [xref:RFC_4180[1]],
 the DAP4 CSV is more complex so that it can fully represent the more
 complex data structures of the DAP4 data model. Some structure beyond
 simple CSV is necessary to capture the DAP4 data structures.
 
 As with requests for data in the DAP4 binary data encoding described in
-Volume 1 of the DAP4 specification
-[https://docs.opendap.org/index.php?title=DAP4_Extension:_CSV_Data_Encoding_and_Response#DAP4_Vol1[DAP4 Vol1]],
+link:#Data_Model[Volume 1] of the DAP4 specification,
 requests for DAP4 CSV encoded data can be constrained to a subset by
-using a standard DAP4 Constraint Expression [DAP4 CE]
+using a standard DAP4 Constraint Expression [DAP4 CE].
 
 == DAP4 Extension Details ==
 
@@ -61,24 +59,24 @@ structured Comma-Separated Values (CSV) in UTF-8 text.
 |===
 | *URL Suffix* | *Media Type* | *URL Example*
 a|
-"`.dap`" or "`.dap.csv`"
+`.dap` or + `.dap.csv`
 a|
 application/vnd.opendap.dap4.data+csv
 
 DAP4 CSV encoding
 a|
-http://server/path/dataset.nc.dap
+`http://server/path/dataset.nc.dap`
 
 http://server/path/dataset.nc.dap.csv
 a|
-"`.dap.csv`"
+`.dap.csv`
 a|
 text/csv
 
 DAP4 CSV (UTF-8) Data encoding with generic media type
 
 a|
-http://server/path/dataset.nc.dap.csv
+`http://server/path/dataset.nc.dap.csv`
 |===
 
 
@@ -86,13 +84,6 @@ http://server/path/dataset.nc.dap.csv
 
 == Normative References ==
 
-[RFC 4180] Common Format and MIME Type for Comma-Separated Values (CSV)
-Files
+. [[RFC_4180]] link:https://www.rfc-editor.org/rfc/rfc4180.html[Common Format and MIME Type for Comma-Separated Values (CSV)
+Files].
 
-[DAP4 Vol1]
-https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1[DAP4
-Volume 1: Data Model&#44; Persistent Representations&#44; and
-Constraints].
-
-{empty}[DAP4 Extensions] [DAP4:_Specification_Volume_1#Extensions|DAP4
-Volume 1, Section 9.3 Extensions]

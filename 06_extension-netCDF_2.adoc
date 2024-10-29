@@ -9,6 +9,7 @@ The Data Access Protocol: DAP Version 4.0
 
 *Copyright 2016* link:https://www.ucar.edu/[UCAR] and link:https://www.opendap.org/[OPeNDAP,Inc]. 
 
+**Abstract**
 
 This document specifies the DAP4 Asynchronous HTTP Response extension.
 It defines the set of HTTP mechanisms used by DAP4 clients and servers
@@ -52,7 +53,7 @@ Role: http://services.opendap.org/dap4/async
 Response:
 
 * DAP4 Asynch Response document:
-** Media Type: application/vnd.opendap.dap4.async+xml
+** Media Type: `application/vnd.opendap.dap4.async+xml`
 ** XML Namespace: http://opendap.org/ns/dap/asynchronous
 ** Types of documents
 *** Required
@@ -117,25 +118,18 @@ of other transport protocols.
 A client can indicate willingness to accept asynchronous responses in
 one of two ways:
 
-* By including the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#Accept_DAP_Asynchronous_Response[X-DAP-Async-Accept]
-HTTP header.
-* By adding the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Constraint_Expression_extension_for_Async[async]
+* By including the link:#_x_dap_async_accept[X-DAP-Async-Accept] HTTP header.
+* By adding the link:#_dap4_constraint_expression_extension_for_async[async]
 keyword to the DAP constraint expression.
 
 If the client indicates that it must have access to the asynchronous
 response content within a certain time (utilizing either the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#Accept_DAP_Asynchronous_Response[X-DAP-Async-Accept]
-HTTP header and/or the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Constraint_Expression_extension_for_Async[async]
+link:#_x_dap_async_accept[X-DAP-Async-Accept]
+HTTP header and/or the link:#_dap4_constraint_expression_extension_for_async[async] 
 keyword in the constraint expression) and the response will not be
 available in that time frame, the server MUST reject the request and
-return an HTTP status of
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#412_Precondition_Failed[412]
-and the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP_Asynchronous_Request_Rejected[DAP
-Asynchronous Request Rejected] XML document.
+return an HTTP status of link:#_412_precondition_failed[412]
+and the link:#_dap4_asynchronous_request_rejected[DAP Asynchronous Request Rejected] XML document.
 
 If both the _X-DAP-Async-Accept_ HTTP header and the _async_ keyword are
 used, the keyword takes precedence.
@@ -145,13 +139,9 @@ the client has not indicated willingness to accept such a response.
 Rejection of such requests is indicated by all three of the following:
 
 [arabic]
-. https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#400_DAP_Asynchronous_Response_Required[HTTP
-status of 400]
-. Inclusion of the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP_Asynchronous_Response_Required[X-DAP-Async-Required]
-HTTP response header
-. The response body must contain the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP_Asynchronous_Response_Required[DAP
+. link:#_400_dap4_asynchronous_response_required[HTTP status of 400]
+. Inclusion of the link:#_x_dap_async_required[X-DAP-Async-Required] HTTP response header
+. The response body must contain the link:#_dap4_asynchronous_response_required[DAP
 Asynchronous Response Required] XML document.
 
 This safety check (requiring clients to explicitly indicate their
@@ -166,8 +156,7 @@ well and don’t encounter unexpected '`hiccups.`'
 
 When a request is accepted by the server and it will result in an
 asynchronous response, the server MUST the server MUST return a 202
-(Accepted) HTTP status code and the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP_Asynchronous_Request_Accepted[DAP
+(Accepted) HTTP status code and the link:#_dap4_asynchronous_request_accepted[DAP4
 Asynchronous Request Accepted] XML document. This document contains a
 URL to the pending result of the request.
 
@@ -181,8 +170,7 @@ but there’s no requirement that servers do that. The only requirements
 on server are that:
 
 [arabic]
-. The URL returned asserts, using the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Constraint_Expression_extension_for_Async[constraint
+. The URL returned asserts, using the link:#_dap4_constraint_expression_extension_for_async[constraint
 expression syntax for async] that the client accepts async responses.
 . The URL returned can be dereferenced and that operation will return
 the response requested by the client.
@@ -193,19 +181,15 @@ When a client requests an asynchronous result that is ready, the server
 MUST return a 200 (OK) HTTP status code and the resulting data response.
 If the client attempts to access the asynchronous result prior to it’s
 availability, the server SHOULD return an HTTP response status of
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#409_Conflict_-_DAP4_Response_Not_Ready[409
-(DAP Response Not Ready)] along with the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Asynchronous_Response_Not_.28Yet.29_Available[DAP
-Asynchronous Response Not Available] XML document. If the server does
+link:#_409_conflict_dap4_response_not_ready[409(DAP Response Not Ready)] along with the
+link:#_dap4_asynchronous_response_not_yet_available[DAP4 Asynchronous Response Not Available] XML document. If the server does
 not return the 409 response status then it MUST return a 404 (Not Found)
 response along with whatever document it deems fit as the response body.
 
 If the client attempts to access the asynchronous result after it is no
 longer available, the server SHOULD return an
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#410_Gone_-_DAP4_Response_No_Longer_Available[HTTP
-response status of 410 (Gone)] along with the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Asynchronous_Response_Gone[DAP4
-Asynchronous Response Gone] document. If the server does not return the
+link:#_410_gone_dap4_response_no_longer_available[HTTP response status of 410 (Gone)] along with the
+link:#_dap4_asynchronous_response_gone[DAP4 Asynchronous Response Gone] document. If the server does not return the
 410 response status then the server MUST return a 404 (Not Found)
 response along with whatever document it deems fit as the response body.
 
@@ -275,8 +259,7 @@ know to look for at least that response header.
 The _X-DAP-Async-Required_ HTTP response header is included in the
 response if the request requires an asynchronous response and the client
 has not indicated willingness to accept such a response. Rejection of
-the request should also be indicated by the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#400_DAP4_Asynchronous_Response_Required[400
+the request should also be indicated by the link:#_400_dap4_asynchronous_response_required[400
 DAP Asynchronous Response Required] HTTP response code.
 
 ==== X-DAP-Async-Accepted ====
@@ -284,8 +267,7 @@ DAP Asynchronous Response Required] HTTP response code.
 The _X-DAP-Async-Accepted_ HTTP response header is included in the
 response if the server has accepted an asynchronous request. Acceptance
 of the request should also be indicated by the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#202_Accepted[202
-Asynchronous Request Accepted] HTTP response code.
+link:#_202_accepted[202 Asynchronous Request Accepted] HTTP response code.
 
 === HTTP Response Codes ===
 
@@ -300,8 +282,7 @@ those that most relevant.
 A server indicates that a request has been accepted and will be handled
 asynchronously by returning a '`202 Accepted`' HTTP response code. The
 response body must contain a document in one of the asynchronous
-information media types listed
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#Media_Types[below].
+information media types listed link##_asynchronous_response_documents[below].
 A server MUST return this response, and only do so, when a client has
 indicated a willingness to process an asynchronous response and the
 response will actually be returned using the asynchronous mechanism.
@@ -317,8 +298,7 @@ The response code text is used to indicate the reason for the rejection.
 However, since the '`400`' HTTP response code is not specific to
 asynchronous DAP (the standard text for the '`400`' code is "`Bad
 Request`"), the _X-DAP-Async-Required_ HTTP response header is also
-included in the response (see
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#Accept_DAP_Asynchronous_Response[above]).
+included in the response (see link:#_x_dap_async_required[above]).
 
 *Note* that a standard 400 HTTP response code is returned. In this way,
 a client that does not understand asynchronous DAP can fail gracefully.
@@ -334,8 +314,7 @@ The '`409 Conflict`' HTTP response code MAY be returned by a server to
 indicate that the DA4P request has been rejected because a previous
 asynchronous request has not been completed and the result is not ready
 for access. If a server utilizes the '`409 Conflict`' HTTP response code
-it must also return a
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Asynchronous_Response_Not_.28Yet.29_Available[DAP4
+it must also return a link:#_dap4_asynchronous_response_not_yet_available[DAP4
 Asynchronous Response Not Yet Available] document in the response body.
 
 ==== 410 Gone - DAP4 Response No Longer Available ====
@@ -343,29 +322,21 @@ Asynchronous Response Not Yet Available] document in the response body.
 The '`410 Gone`' HTTP response code MAY be used by a server to indicate
 that the result of an asynchronous request is no longer available. If a
 server utilizes the '`410 Gone`' HTTP response code it must also return
-a
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#DAP4_Asynchronous_Response_Gone[DAP4
-Asynchronous Response Gone] document in the response body.
+a link:#_dap4_asynchronous_response_gone[DAP4 Asynchronous Response Gone] document in the response body.
 
 ==== 412 Precondition Failed ====
 
 The '`412 Precondition Failed`' HTTP response code is used to indicate
 that the DAP request has been rejected because it did not meet the
-*X-DAP-Async-Accept* condition (see
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#Accept_DAP_Asynchronous_Response_Conditionally_on_Estimated_Time_to_Completion[above])
-that was specified in the request.
+*X-DAP-Async-Accept* condition (see link:#_x_dap_async_accepted[above]) that was specified in the request.
 
 ==== 500 Internal Error ====
 
 The '`500 Internal Error`' HTTP response code is used to indicate that
 the DAP request has caused an error on the server. The request body and
-other headers must be compliant with the
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3#DAP4_Error_Response[DAP4
-Error Response] and
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3#Status_Codes[Status
-Codes] sections of the
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3[web
-services specification]. The request should not be repeated.
+other headers must be compliant with the link:#_dap4_error_response[DAP4 Error Response] 
+and link:#_status_codes[Status Codes] sections of the
+link:#Web_Services[Web Services Specification]. The request should not be repeated.
 
 === Asynchronous Response Documents ===
 
@@ -465,8 +436,7 @@ asynchronous response has been accepted, the result is not available.
 ....
 
 This response document MUST be associated with the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#409_Conflict_-_DAP4_Response_Not_Ready[409
-HTTP response code].
+link:#_409_conflict_dap4_response_not_ready[409 HTTP response code].
 
 Servers SHOULD return this response document and it’s associated HTTP
 status of 409, but servers MAY return any document in the response body
@@ -483,8 +453,7 @@ available.
 <AsynchronousResponse status="gone"/>
 ....
 
-This response document MUST be associated with the
-https://docs.opendap.org/index.php?title=DAP4_Extension:_Asynchronous_Response#410_Gone_-_DAP4_Response_No_Longer_Available[410
+This response document MUST be associated with the link:#_410_gone_dap4_response_no_longer_available[410
 HTTP status code].
 
 Servers SHOULD return this response document and it’s associated HTTP
@@ -541,13 +510,9 @@ place.
 
 If the server encounters an error it must MUST (MAY?) return an HTTP
 status of 500 (Internal Error) along with a request body and other
-headers compliant with the
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3#DAP4_Error_Response[DAP4
-Error Response] and
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3#Status_Codes[Status
-Codes] sections of the
-https://docs.opendap.org/index.php?title=DAP4_Web_Services_v3[web
-services specification]. The request should not be repeated.
+headers compliant with the link:#_dap4_error_response[DAP4 Error Response] 
+and link:#_status_codes[Status Codes] sections of the
+link:#Web_Services[Web Services Specification]. The request should not be repeated.
 
 == Examples ==
 
