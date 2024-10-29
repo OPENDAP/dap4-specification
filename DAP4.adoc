@@ -42,7 +42,7 @@ include::06_extension-NETCDF_2.adoc[lines="1,12..-1"]
 
 // JSON extension
 [[json-extension]]
-include::07_json.adoc[lines="1,8..-1"]
+include::07_json.adoc[lines="1,10..-1"]
 
 
 // Deltas
