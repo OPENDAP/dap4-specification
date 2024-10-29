@@ -1,7 +1,7 @@
 sudo: required
 branches:
   only:
-  - master
+  - main
 env:
   global:
   # GIT_USER_EMAIL
