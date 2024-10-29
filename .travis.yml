@@ -31,4 +31,4 @@ after_error:
 after_failure:
 - docker logs asciidoc-to-html
 after_success:
-- "./travis/deploy_to_gh_pages.sh"
+- ./travis/deploy_to_gh_pages.sh
