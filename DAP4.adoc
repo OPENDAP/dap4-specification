@@ -1,6 +1,5 @@
 = The Data Access Protocol Version 4 (DAP4) Specification
-Copyright 2016 UCAR and OPeNDAP,Inc. 
-{docdate}
+Copyright 2016 UCAR and OPeNDAP, Inc. 
 :toc: left
 :toclevels: 5
 :numbered:
@@ -34,7 +33,7 @@ include::04_extension-csv.adoc[lines="1,12..-1"]
 
 // Netcdf Extension
 [[netcdf-encoding-response]]
-include::05_extension-netcdf.adoc[lines="1,8..-1"]
+include::05_extension-netcdf.adoc[lines="1,12..-1"]
 
 // Netcdf Async
 [[netcdf-async]]
