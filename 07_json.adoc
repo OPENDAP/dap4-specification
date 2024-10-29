@@ -1,0 +1,11 @@
+= Extensions: JSON Data and Metadata Encoding
+:Miguel Jimenez <mjimenez@opendap.org>:
+{docdate}
+:numbered:
+:toc:
+:stem:
+:source-highlighter: rouge
+The Data Access Protocol: DAP Version 4.0
+
+
+There is currently no text in this page.

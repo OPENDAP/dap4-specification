@@ -1,0 +1,565 @@
+= Deltas
+:Miguel Jimenez <mjimenez@opendap.org>:
+{docdate}
+:numbered:
+:stem:
+:source-highlighter: rouge
+:toc:
+
+This document contains a collection of emails between the collaborators/developers going back to July 2013, regarding DAP4 and it’s implementation. These all concern links:#Data_Model[Volume 1].
+
+== Constraints, subsetting: unified syntax
+
+Dennis and I decided on this syntax for CEs that encompasses simple
+projections and array slicing, including when the arrays use shared
+dims. No grammar, just examples of what’s allowed and explanations of
+what the examples mean.
+
+CEs for DAP4
+
+CE Syntax
+
+[source,xml]
+----
+<dataset name=t1>
+     <dimension name=d size=20/>
+     <byte name=b>
+         <dim size=10/>
+     </byte>
+     <byte name=c>
+          <dim name=d/>
+    </byte>
+    <structure name=s>
+         <byte name=d>
+             <dim name=d/>
+         </byte>
+         <byte name=e>
+              <dim name=d/>
+              <dim size=5/>
+        </byte>
+         <byte name=f>
+             <dim name=d/>
+         </byte>
+    </structure>
+</dataset>
+----
+
+Some CEs:
+
+- `b` +
+Return just b
+
+- `b;c` +
+Return both b and c
+
+- `b[1:4]` +
+Slice `b` so that only elements 1 through 4 are returned. Since `b` does not
+use a shared dim the special properties of shared dims (sdims) don’t
+matter. Although in this case it doesn’t matter
+
+- `c[]` +
+Return all of `c` but because a local slicing operation was performed, `c`
+is returned with dim 1 as an anonymous dim, not the sdim '`d`'
+
+- `/d=[2:5];c[]` +
+Slice the sdim '`d`' using `[2:5]`. For the variable `c`, apply that slice
+and return the result. In this case `c` will be shown with the `sdmi` '`d`'
+but that `sdim` will be of size `4`. Thus the _[]_ means two different
+things for an array with shared dims. Either return the whole dim as if
+a local slice was made or since that sdim was sliced (previously in the
+CE), use that slice. We use an explicit thing to cover the case where an
+array has both sdims and anonymous dims.
+
+- `/d=[2:5];/s.d[]` +
+Apply the sdim slice to the array '`d`'. Since arrays and dims can have
+the same name, we use an _=_ to mean _this is a sdim and I’m slicing it_
+in the CE. This is not a great example of that since the var and sdim
+have different FQNs, but it’s possible for them to have the same FQN,
+hence the _=_
+
+- `/d=[2:5];s.e[][]` +
+Similarly, apply the slice to the first dim (using the sdim slice) and
+get all of the second dime
+
+- `/d=[2:5];s.e[][1:3]` +
+Use the sdim slice and apply a slice to the second (anonymous) dim.
+really this is the same case as above, but with different values for the
+second dim’s slice operator
+
+- `/d=[2:5];s.e[1:4][1:3]` +
+Return e with two anonymous dims; based on the original sizes. That is,
+even though the first dim in the DMR uses the sdim '`d`', since we’re
+using the local slicing operator, we take the 1:4 slice from the
+20-element dimension. The only time a sdim slice applies is when an
+array is declared as using it in the DMR and _[]_ appears for that dim
+in the CE.
+
+- `/d=[2:5];s\{d[],f[]}` +
+Slicing apples recursively
+
+- `/d=[2:5];s.d[];s.f[]` +
+Same result as the previous CE
+
+- `/d=[2:5];s\{d[],e[][1]}` +
+
+- `/d=[2:5];s[1:3]\{d,f}` +
+This slicing op applies to '`s`' (which makes no sense with the example
+dataset; image it does make sense ;-)
+
+CDMR: Will be a subset of the DMR. It may reference shared dims but will
+not create any dims
+
+- `seq\{i,j,k} | j < 10` +
+This filter, shown with a Sequence _seq_ (not int he example DMR) is
+applied to everything in the clause. CEs are made up of clauses
+separated by _;_ marks.
+
+== constraints, subsetting and maps
+
+Bob Simons sent this: +
+I liked your talk about OPeNDAP yesterday at ESIP. I especially liked
+your phrases "`select by index`", "`select by coordinate`", "`select by
+value`". They are useful phrases.
+
+I understand and like "`select by index`". But since it is also useful
+to select by coordinate value, it would be great if OPeNDAP 4 would
+support the optional syntax "`(value)`" in projection constraints, where
+the value is converted to the nearest index. For example,
+variable[(startValue):stride:(stopValue)] would be converted by the
+server to variable[startIndex:stride:stopIndex] This would allow users
+to specify requests
+
+For time variables (with units of "`someTimeUnit since someTime`"), it
+would be great if the startValue or stopValue could be expressed in
+whatever the dimensions units are (e.g., in "`minutes since
+1980-01-01`") *or* as an ISO 8601:2004 "`extended`") time (e.g.,
+1985-12-31T23:59:59Z).
+
+This also solves problems with datasets that just offer the latest e.g.,
+30 days of data. Currently, if a user requests the time values, finds
+the index for a current date, and requests the data with that time
+index, the dataset may have changed so that the requested index no
+longer has the value the user expects.
+
+Is there any chance that the OPeNDAP 4 specification could include the
+() notation in projection constraints?
+
+Thanks for considering this.
+
+And we had a long thread about it: +
+Dan- I think what might work is the use of functions inside of
+projections. e.g. velocity[f(start):stride:f(end)] where f converts
+something in say, time or lat or lon to an index. - Dennis
+
+Daniel Holloway wrote: Dennis, James, There are several proposals within
+the wiki that seem applicable to this problem, what about is it about
+this particular problem/solution that breaks the ideas put forth in the
+'`filter constraints`' proposal that could not be addressed
+(potentially) by extending that idea somewhat? Similarly in the
+'`constraint expressions`' proposal, and somewhat less though related in
+the '`subset arrays and grids by value`', granted the problem as stated
+is more grid projection using selection by value on the map vectors. Dan
+On Jul 16, 2013, at 9:47 PM, Dennis Heimbigner wrote: I must confess to
+be intrigued/baffled at Bob’s mixing of time endpoints and index
+strides. As for using "`nearest`" even that requires a specification of
+rounding.
+
+In any case, and to be somewhat cliched, this seems like a job for a
+server side function.
+
+- Dennis.
+
+p.s. coordinate variables are associated with other variables using the
+<Map>…</Map> construct.
+
+Dave Fulker wrote: On Tue, Jul 16, 2013 at 9:44 AM, John Caron
+<caron@unidata.ucar.edu> wrote: ok, i understand your concern a bit
+better. you are considering the general case where coordinate values are
+all over the place. but if they are monotonic, then the user makes a
+range request in coordinate space and the server translates this quite
+easily into a range request in index space.
+
+im pretty sure this is what bob is proposing. By my reading, Bob’s
+request does *not* include coordinate values in the stride; he asks for
+coordinate-to-index translation only at the interval endpoints and
+expects only the *nearest* values there, so interpolation is never
+required. If we want to support coordinate values in the stride
+argument, some notion of "`nearest`" might be plausible (as Dennis
+hints), but I suspect Bob omitted this deliberately. It’s not even clear
+to me that monotonicity is a requirement; without it, users could
+separate apples from oranges without knowing their indices.  ;-) I
+personally think Bob’s notation could be accommodated directly in DAP4
+without violating our KISS commitment *if we restrict it to 1-D maps*.
+Use with N-D maps strikes me as complicated, and I think it leads to
+questions of the sort Nathan raises, so I would not try to bite off that
+one (within DAP4). Also, I’m less inclined toward including Bob’s
+time-translation request because it involves interpreting the "`units`"
+attribute. For me that smacks of extension along the lines Ethan
+suggests. Stated another way, I can see the ( ) to [ ] translation as
+truly domain independent, but notions of time seem less so. Finally,
+could someone remind me: are coordinate maps a formal data type in DAP4,
+or are they established via naming conventions? Thanks, Dave On
+7/16/2013 9:31 AM, Dennis Heimbigner wrote:
+
+Thinking about Nathan’s last comment leads me to dissect this issue a
+bit more.
+
+Suppose we have the following schema using time as in Bob’s original
+request. The lat/lon issue is similar except in 2 dimensions.
+
+dimensions: time=… variables:
+
+....
+float velocity(time);
+float time(time);
+....
+
+If we want to get the time of velocity(i), then we can compute time(i).
+
+The inverse of this is to ask for the velocity at time 1/1/13, for
+example.
+
+If I understand Bob’s suggestion, he is saying one should be able to ask
+for velocity(1/1/13) and get the velocity at that time. Or similarly,
+ask for the range of velocities(1/1/13:1hr:1/2/13).
+
+The problem comes in figuring out to choose which integer indices of the
+time dimension are be included in the set given that it may be the case
+that none of the values 1/1/13,1/1/13+2hr,…1/2/13 are actually in the
+time(time) variable. This means we need to define an algorithm to decide
+which indices are in the set and which are out. Finding the initial
+starting index requires searching time(time) to find, say, the first i
+such that time(i) >= 1/1/13. For each additional point, we need to
+either search for another "`closest`" point or interpolate between two
+adjacent velocity values based on some pair of covering points in the
+time(time) variable.
+
+As Nathan points out, we can approximate the above by allowing domain
+based query. So we might say \{velocity(x,y)|time(x) >= 1/1/13 &&
+time(x) <= 1/2/13} This has at least the advantage of being well defined
+and domain independent (more or less). When we met in Boulder, some of
+our discussions addressed this kind of query, but no resolution. It is
+fair to say, however, that it is still on our agenda.
+
+- Dennis
+
+Daniel Holloway wrote:
+
+On Jul 16, 2013, at 12:42 AM, Nathan Potter wrote:
+
+Isn’t it reasonable to factor out the lat/long coordinate issue? Can we
+not consider the two cases: a) Subsetting range values of array or Grid
+by value - if a particular value that exists in the Array/Grid fulfills
+the selection constraint then it is included in the response.
+
+{empty}b) Subsetting by Domain value - this I think is what Dennis is
+referring to - where the constrained specifies which values in the
+domain are acceptable. For the map upon which the constraint is applied
+has a value at a particular index i, then all of the requested variables
+that utilize that map should have their i’th value included in the
+result.
+
+....
+While I can see how 'b' might be viewed as a special constraint case
+....
+
+for '`grids`' at some point it becomes a similar problem to constraining
+any array by value, that is what are the potential changes to the
+response type, if any, (.e.g., sparse array, mask, …).
+
+What is actually returned in both cases is the thing I think we would
+have to work out (a sparse array? a mask?)
+
+I don’t see how interpolation/search comes into it. So maybe Dennis you
+could elaborate on your concerns - I’m not following you.
+
+....
+First, assuming his intent is simply to select array indices of
+....
+
+the dependent variable based on '`selection by value`' on the
+independent, or coordinate, variables using only the values in the
+coordinate variables themselves, that is, (.e.g., not supporting iso8601
+time-values in the constraints and expecting conversion to
+seconds-since-1970). Then minimally there’s the issue at the boundaries
+for any particular extent, or when discrete values are requested when
+the domain variable (in OGC parlance) is a coverage and not a point. So,
+regardless of geo or any specific domain there will be some extent of
+interpolation and/or search, and how that is communicated in the
+response. Also, in DAP-4 we’re extending grid map-vectors to be
+n-dimensional, though typically size 1 or 2 is my guess, so the
+resulting shape for constrained variables will become quite important to
+the end-user client.
+- Dan
+
+Thanks, Nathan
+
+On Jul 15, 2013, at 6:27 PM, Dennis Heimbigner wrote:
+
+Remember that what was being proposed is to map from the specification
+of a geo lat/long range to a set of integer indices. The inverse is not
+a problem (IMO). Going from lat/long to indices requires, I think,
+algorithms to deal with interpolation and search. I do not think,
+personally, that there is likely to be any agreement about which
+algorithms to use.
+
+- Dennis
+
+Nathan Potter wrote:
+
+I think it’s not a coordinates question but a select/subset by value
+question. If we limit our view of the problem to just subsetting arrays,
+Grids, and Sequences then I think if we solve the resulting data model
+issues (sparse arrays? masks? etc.) then we might have something really
+useful. And I don’t think it adds a huge burden of thought or work.
+Unless of course I am mistaken and the possible result space turns out
+to be awful to represent. Nathan On Jul 15, 2013, at 4:38 PM, John Caron
+wrote:
+
+Im not so sure, it might be very low hanging fruit. Note that it doesnt
+require georeferencing or feature types, just coordinates (maps). On the
+grid data type, i think all the semantics are already there. OTOH, it
+would require some clarifications.
+
+On 7/15/2013 4:00 PM, Ethan Davis wrote:
+
+I agree with Dennis on this one.
+
+While Bob’s proposal is very simple and elegant in its request encoding,
+it assumes things outside of the core DAP4 data model. So, to my mind it
+doesn’t belong in the core specification.
+
+It might make a good extension. But it would need to be fleshed out. It
+would need a few extensions to the DMR. For example, a way to indicate
+when it can be used (which datasets, which arrays, which dimensions).
+And, as Dennis mentions, the same for the interpolation algorithm.
+
+- Ethan
+
+On 7/15/2013 1:12 PM, Dennis Heimbigner wrote:
+
+For what its worth, my philosphy here is that DAP4 is intended to be the
+lowest level representation for data. Any additional semantics such as
+geographical coordinates and more generally feature types should be
+implemented on top of DAP4. The relatively simple semantics of DAP4
+should not be made more complicated by embedding feature types. For
+example, embedding geographical coordinates requires defining the
+interpolation algorithm as part of the standard. If some other algorithm
+is desired, then how is that to be supported?
+
+- Dennis
+
+Dave Fulker wrote:
+
+Here’s Bob Simons’ reply to my request for his ESIP slides. I think that
+the perspective he presents (note, e.g., the slide that he titled
+"`Don’t Treat In-Situ/Tabular Data Like Gridded Data`") should inform
+our thinking as we finalize DAP4. – Dave
+
+== response information 
+
+We started down this path, then left it hanging, I think:
+http://docs.opendap.org/index.php/DAP4:_Inclusion_of_response_metadata_in_the_DMR
+
+== using the url query string key=value notation
+
+Gallagher James wrote: Dennis, I’m thinking about, but have not really
+worked thorough, the idea that DAP4 will separate server functions from
+the Constraint Expression by passing those two things into the servers
+using different key names in the query string. Something like '`URL ?
+eval = <functions> & ce = <constraint expr>`'. The semantics of this
+would be that the <functions> (whatever that turns out to be) are
+evaluated first and then the <constraint expr> is applied to the result.
+If the '`eval=<functions>`' part of the query string is not given then
+the constraint is applied to the dataset (and if the constraint is not
+given the dataset is just returned in toto). Does this seem reasonable
+to you? +
+I am not sure. My immediate reaction is to ask how the client will know
+what kind of constraint to write in the presence of an '`eval=`'; that
+is, what is the DMR against which the constraint is written? - Dennis
+
+----
+We should elaborate on what the different keys might mean. _eval_ would
+run a function(s) and produce a virtual dataset. The server would return
+the DMR, etc., for that
+----
+
+== sequences with structures and the resulting CEs
+
+James Gallagher wrote: On Aug 2, 2013, at 7:04 PM, Dennis Heimbigner
+wrote: Yes I did intend to allow nesting of Sequences and Structures. I
+suspect that in the implementation I will come to regret it, but until
+then…. My guess is that’s not so bad, but, I think we should our filters
+to '`id op constant`' (and the positional variants) and not support '`id
+op id`'. Or limit the latter case based on the scope of the ids (but I’d
+rather not support it at all). James +
+That sounds right to me; we can always extend it later if there is
+sufficient reason Dennis
+
+== basic testing support 
+
+We might make a collection of DMR files available for debugging/testing
+
+== FQNs in a DMR/Data response 
+
+Gallagher James wrote: Are the Dim, Map and Enum elements’ name
+attributes always FQNs? So <Dim name="`x`"/> is never valid and should
+always be a FQN like: <Dim name="`/x`"/> ? +
+Dennis: That is what I put in the spec. The argument is that it is
+easier for machines while still making it reasonably readable by a
+person.
+
+== augment the vol1 spec with details about CE effects on a DMR 
+
+It occurs to me that we need to augment our proposed constraint
+expression grammars with a description of what kinds of DMRs will result
+from our proposed constraints.
+
+That is, given a constraint and a DMR for the unconstrained dataset,
+describe the DMR that corresponds to the result of applying the
+constraint.
+
+To that end, I have put up a new proposal based on describing rules for
+constructing the DMR that results from a constraint.
+http://docs.opendap.org/index.php/DAP4:_Alternate_Proposal_for_a_Constraint_Expression_Syntax
+
+== sequence serialization: how to serialize a zero-length sequence
+
+Gallagher James wrote: Dennis, Looking at Sequence and thinking about CE
+evaluation: When there’s a nested Sequence like this:
+
+....
+Seq {
+ Int32 i;
+ Int32 j;
+ Seq {
+    Int32 k;
+    Int32 l;
+ } inner;
+} outer;
+....
+
+And a CE requests all of outer (which means inner too) such that k > 10,
+what should be sent when k is not > 10? Should i and j still be sent and
+an empty inner (so the count would be 0)? This would be my preference
+since the alternative is very tricky to code. Is that your
+understanding? +
+Dennis: Yes, a count of zero should be allowed. +
+also: My recollection is that we decided to only allow filtering based
+on the outermost variables (i and j in this case) and filtering based on
+k would be illegal. Maybe we should revisit this decision. the best
+alternative I can think of in this case is that all records in outer are
+kept and all records in inner are filtered (for each record in outer).
+
+*nb*: This is a big deal for nested sequences because it you were to
+require that zero-length child sequences suppress the serialization of
+their parent sequence (as was the case with DAP2) the code to handle the
+sequence serialization becomes very complex. We made the correct
+decision here to allow child sequences to be zero length
+
+== IEEE 754 for real numbers
+
+Gallagher James wrote: Dennis, When we adopted '`reader make right`' we
+mostly talked about byte order; do you handle the case where one of the
+two hosts does not use IEEE754 for either 32 or 64 bit reals? +
+Reader makes it right was intended to apply only to byte order. We
+should indeed enforce use of 754 as the only acceptable format. -Dennis
+
+== how big are arrays? 64 bits? 63 bits? 61 bits? signed? unsigned?
+
+Gallagher James wrote: I’m wondering what type should be used to hold
+the number of elements in an array. I can’t find where in the spec it
+says how big an array can be - is it an unsigned 64bit number of
+elements? Or unsigned 32 bits? +
+Dennis: it is a signed 64 bit integer. +
+Yes signed. The argument is that interpretive languages (Java, python…)
+are not good at handling unsigned 64 bit numbers, so I chose to stick to
+signed 64 bit integer, which is effectively a 63 bit int We need to fix
+the text. Here’s what the dc says: … The total number of elements in an
+Array MUST NOT exceed stem:[2^(64)-1].
+
+In the telecon we decided that the make number of elements was stem:[2^(61)-1].
+We decided that the number of bytes for an array should never be more
+than stem:[2^(64)-1] bytes (because the size needs to be signed because Java and
+Python don’t grok unsigned ints) and because C code will need to malloc
+these and malloc won’t take more than a 64-bit int.
+
+== About the end chunk in a chunked response
+
+Dennis, I’m tweaking my code to process the chunked responses and
+thinking about what the end chunk means. Does the end chunk mean that
+once any data it contains has be consumed EOF has been reached? Or is it
+possible to have more data chunks (or an error chunk) after an end
+chunk? James +
+I believe the rule is that any sequence of chunks must stop at the first
+end chunk or error chunk. The end chunk may or may not contain data. - Dennis
+
+== where we encode the byte order for a DAP4 Data response
+
+On Sep 10, 2013, at 10:06 AM, Dennis Heimbigner <dmh@unidata.ucar.edu>
+wrote: I think we agreed to put the serialization byte order in the http
+headers. Do you want to revisit that decision? =Dennis +
+Yes. There’s another part of the spec that says the response
+document/body is all you need to read (of course, you need the spec too)
+the document. The HTTP headers are generally lost by the time a client
+gets the response body, so I think the byte order should go in the
+response body somewhere. James +
+ok with me. One possibility is a new flag in the chunk headers. -Dennis
+
+== Order of stuff in the DMR 
+
+Gallagher James wrote: On Sep 5, 2013, at 9:30 AM, Dennis Heimbigner
+wrote: I recall that we placed limits on which dimensions and maps and
+enums could be referenced to be something in the same group or an
+enclosing group. Given that, we could do this order: dimensions, enums,
+variables, groups because the above rule would guarantee no forward
+reference. +
+OK, lets adopt this and change the grammar to reflect it. I’ll change
+the rng file and check it in. As for group attributes, currently, I
+print them at the very end of the group, but this is easily changed. I
+would suggest however, that they be either at the very beginning or the
+very end of the group. My vote is to put them at the end. =Dennis +
+More info - we have adopted this as the correct order, although it
+should be said that any order so long as everything is '`defined before
+use`' is acceptable: +
+For Atomic Variables I propose:
+
+* dimension references
+* Attributes
+* maps
+
+For Seq/Struct I propose:
+
+* fields
+* dim references
+* Attributes
+* maps
+
+DMR Order of stuff… Personally, I think the best order is
+
+* dimdefs
+* enumdefs
+* variables
+* attributes
+* groups
+
+This keeps all of the per-group stuff (enum,dim,var,attr) together and
+then the subgroups after that.
+
+== limitations on the DMR Dim element
+
+Gallagher James wrote: Dennis, In an array in DAP4, Can a Dim element
+have both a name and a size? Is the name limited to only names of shared
+Dimension elements (previously defined)? James +
+Limited to previously defined dimensions. You can only specify a size
+within an array. - Dennis
+
+== names 
+
+Gallagher James wrote: Dennis, You might have guessed that my previous
+question relates to looking up things (groups, variables, dimensions)
+based on their FQN. Are we allowing a Group and a variable, for example,
+to have the same name at the same lexical level (I hope not)? James +
+I have assumed that yes, two decls of different kinds can have the same
+name. This is obviously true for dimensions and variables, so I assumed
+it held generally. Why is this causing a problem? - Dennis
