@@ -29,7 +29,7 @@ EOF
 echo "${index_html}" | tee index.html
 
 # Now we set up the git repo
-git config --global init.defaultBranch "master"
+git config --global init.defaultBranch "main"
 git init
 git config user.name "${GIT_USER_NAME}"
 git config user.email "{GIT_USER_EMAIL}"
@@ -39,5 +39,5 @@ git status
 git commit -m "COMMIT Deploying update to GitHub Pages"
 git status
 # Push to GitHub Pages
-git push --force -v "https://${GIT_UID}:${GIT_TOKEN}@github.com/OPENDAP/dap4-specification" master:gh-pages
+git push --force -v "https://${GIT_UID}:${GIT_TOKEN}@github.com/OPENDAP/dap4-specification" main:gh-pages
 git status
