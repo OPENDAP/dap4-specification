@@ -28,6 +28,15 @@ EOF
 # Here we add an index.html that redirects to DMRpp.html
 echo "${index_html}" | tee index.html
 
+sed -i '/<\/head>/i\
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C166YERTXV"></script>\
+<script>\
+window.dataLayer = window.dataLayer || [];\
+function gtag(){dataLayer.push(arguments);}\
+gtag("js", new Date());\
+gtag("config", "G-C166YERTXV");\
+</script>' DAP4.html
+
 # Now we set up the git repo
 git config --global init.defaultBranch "main"
 git init
