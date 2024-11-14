@@ -15,6 +15,16 @@ service_. This document outlines the fundamental concepts of DAP4, and
 (targeting those who have already programmed DAP-compatible clients and
 servers) it highlights how DAP4 differs from DAP2.
 
+Though the protocol, per se, is maintained primarily by OPeNDAP, many
+others have engaged in DAP2 realization. One implementation—by Unidata,
+in the University Corp. for Atmospheric Research—includes the popular
+THREDDS Data Server (TDS). A key motivation for DAP4, developed jointly
+by OPeNDAP and Unidata, was to reduce differences that have arisen, and
+impede interoperability, among DAP2 realizations. Our hope is that a
+modernized, clearer and more comprehensive specification will facilitate
+building clients and servers with greater interoperability, making such
+ventures more rewarding and less risky.
+
 
 == Data Retrieval as a Web Service ==
 
@@ -383,16 +393,6 @@ Extension: netCDF Asynchronous Response]
 [[dap2dap4]]
 .Differences in the data model and response types between DAP2 and DAP4. 
 image::DAP4vsDAP2.png[width=750, align='center']
-
-Though the protocol, per se, is maintained primarily by OPeNDAP, many
-others have engaged in DAP2 realization. One implementation—by Unidata,
-in the University Corp. for Atmospheric Research—includes the popular
-THREDDS Data Server (TDS). A key motivation for DAP4, developed jointly
-by OPeNDAP and Unidata, was to reduce differences that have arisen, and
-impede interoperability, among DAP2 realizations. Our hope is that a
-modernized, clearer and more comprehensive specification will facilitate
-building clients and servers with greater interoperability, making such
-ventures more rewarding and less risky.
 
 This section covers changes to the data model, response formats, and
 serialization, giving developers a roadmap to migration from DAP2 to
