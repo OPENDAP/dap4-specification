@@ -1794,7 +1794,7 @@ byte count, all contained in a single four-byte word. The encoding of
 this word is always network byte order (i.e. Big-Endian) The chunk type
 will be encoded in the high-order byte of the four-byte word and chunk
 size will be given by the three remaining bytes of that word. The
-maximum chunk size possible is 224 bytes. Immediately following the
+maximum chunk size possible is stem:[2^{24}] bytes. Immediately following the
 four-byte chunk header will be chunk-count bytes followed by another
 chunk header. More precisely the initial four bytes of the chunk are
 decoded using the following steps.
