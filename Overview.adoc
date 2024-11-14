@@ -380,6 +380,10 @@ Extension: netCDF Asynchronous Response]
 
 == How DAP4 Differs from DAP2 ==
 
+[[dap2dap4]]
+.Differences in the data model and response types between DAP2 and DAP4. 
+image::DAP4vsDAP2.png[width=750, align='center']
+
 Though the protocol, per se, is maintained primarily by OPeNDAP, many
 others have engaged in DAP2 realization. One implementation—by Unidata,
 in the University Corp. for Atmospheric Research—includes the popular
