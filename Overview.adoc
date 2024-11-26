@@ -404,7 +404,7 @@ DAP4 servers return checksums with each data response, but clients may
 utilize these in varying degrees.
 
 DAP4 is largely an extension of DAP2 concepts, is close to a superset of DAP2 (see xref:dap2dap4[Figure 1]),
-and including ideas that emerged as DAP gained prominence across the Earth sciences. Therefore
+and includes ideas that emerged as DAP gained prominence across the Earth sciences. Therefore
 DAP2-compatible software, in clients or servers, should be easy to adapt
 to DAP4, and this has been affirmed in the OPeNDAP-Unidata realization
 and testing work. Furthermore, DAP4 exhibits backward compatibility
@@ -418,10 +418,12 @@ datatype, adds a few new atomic types, but `Grids` are removed from the DAP4 Dat
 
 The DAP4 data model is fundamentally similar to that for DAP2. New
 atomic types include: enumeration, 64-bit integer, and opaque, the
-container types removes Grids but now include Groups (see xref:dap2dap4[Figure 1]). 
-Groups provide a way to organize collections of variables and dimensions and to encode these
-organizational relationships when they are present in the underlying
-source data.
+container types removes `Grids` but now include Groups (see xref:dap2dap4[Figure 1]). 
+In DAP4, a DAP2 `Grid` is represented by an `Array` together with information about
+its `Dimensions (Dims)` and `Maps` (see link:#_coverage_variables_and_maps[Coverage Variables and Maps
+]). Groups provide a way to organize collections 
+of variables and dimensions and to encode these organizational relationships when they 
+are present in the underlying source data.
 
 Dimensions may now be named, and the presence of shared dimensions
 (i.e., several variables employ a dimension with a given name) along
