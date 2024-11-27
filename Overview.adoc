@@ -420,8 +420,7 @@ The DAP4 data model is fundamentally similar to that for DAP2. New
 atomic types include: enumeration, 64-bit integer, and opaque, the
 container types removes `Grids` but now include Groups (see xref:dap2dap4[Figure 1]). 
 In DAP4, a DAP2 `Grid` is represented by an `Array` together with information about
-its `Dimensions (Dims)` and `Maps` (see link:#_coverage_variables_and_maps[Coverage Variables and Maps
-]). Groups provide a way to organize collections 
+its `Dimensions` which may be shared, and `Maps` (see link:#_coverage_variables_and_maps[Coverage Variables and Maps]). Groups provide a way to organize collections 
 of variables and dimensions and to encode these organizational relationships when they 
 are present in the underlying source data.
 
