@@ -12,6 +12,7 @@ Copyright 2016 UCAR and OPeNDAP, Inc.
 :source-highlighter: coderay
 :coderay-linenums-mode: inline
 :prewrap!:
+:imagesdir: ./images
 :homepage: www.opendap.org
 
 :leveloffset: +1

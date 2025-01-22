@@ -15,6 +15,16 @@ service_. This document outlines the fundamental concepts of DAP4, and
 (targeting those who have already programmed DAP-compatible clients and
 servers) it highlights how DAP4 differs from DAP2.
 
+Though the protocol, per se, is maintained primarily by OPeNDAP, many
+others have engaged in DAP2 realization. One implementation—by Unidata,
+in the University Corp. for Atmospheric Research—includes the popular
+THREDDS Data Server (TDS). A key motivation for DAP4, developed jointly
+by OPeNDAP and Unidata, was to reduce differences that have arisen, and
+impede interoperability, among DAP2 realizations. Our hope is that a
+modernized, clearer and more comprehensive specification will facilitate
+building clients and servers with greater interoperability, making such
+ventures more rewarding and less risky.
+
 
 == Data Retrieval as a Web Service ==
 
@@ -380,15 +390,9 @@ Extension: netCDF Asynchronous Response]
 
 == How DAP4 Differs from DAP2 ==
 
-Though the protocol, per se, is maintained primarily by OPeNDAP, many
-others have engaged in DAP2 realization. One implementation—by Unidata,
-in the University Corp. for Atmospheric Research—includes the popular
-THREDDS Data Server (TDS). A key motivation for DAP4, developed jointly
-by OPeNDAP and Unidata, was to reduce differences that have arisen, and
-impede interoperability, among DAP2 realizations. Our hope is that a
-modernized, clearer and more comprehensive specification will facilitate
-building clients and servers with greater interoperability, making such
-ventures more rewarding and less risky.
+[[dap2dap4]]
+.Differences in the data model and response types between DAP2 and DAP4. For a complete overview of differences, see text. 
+image::DAP4vsDAP2.png[width=750, align='center']
 
 This section covers changes to the data model, response formats, and
 serialization, giving developers a roadmap to migration from DAP2 to
@@ -399,8 +403,8 @@ section, users may learn of functionalities to seek in clients. E.g.,
 DAP4 servers return checksums with each data response, but clients may
 utilize these in varying degrees.
 
-DAP4 is largely an extension of DAP2 concepts, including ideas that
-emerged as DAP gained prominence across the Earth sciences. Therefore
+DAP4 is largely an extension of DAP2 concepts, is close to a superset of DAP2 (see xref:dap2dap4[Figure 1]),
+and includes ideas that emerged as DAP gained prominence across the Earth sciences. Therefore
 DAP2-compatible software, in clients or servers, should be easy to adapt
 to DAP4, and this has been affirmed in the OPeNDAP-Unidata realization
 and testing work. Furthermore, DAP4 exhibits backward compatibility
@@ -409,15 +413,16 @@ support for Groups, yielding greater compatibility with HDF and NetCDF4.
 
 === Data-Model Changes ===
 
-*Summary*: DAP4 now supports groups, a generalized form of a grid
-datatype and a few new atomic types.
+*Summary*: DAP4 now supports `Groups`, a generalized form of a grid
+datatype, adds a few new atomic types, but `Grids` are removed from the DAP4 Data model.
 
 The DAP4 data model is fundamentally similar to that for DAP2. New
-atomic types include: enumeration, 64-bit integer, and opaque, and the
-container types now include groups. Groups provide a way to organize
-collections of variables and dimensions and to encode these
-organizational relationships when they are present in the underlying
-source data.
+atomic types include: enumeration, 64-bit integer, and opaque, the
+container types removes `Grids` but now include Groups (see xref:dap2dap4[Figure 1]). 
+In DAP4, a DAP2 `Grid` is represented by an `Array` together with information about
+its `Dimensions` which may be shared, and `Maps` (see link:#_coverage_variables_and_maps[Coverage Variables and Maps]). Groups provide a way to organize collections 
+of variables and dimensions and to encode these organizational relationships when they 
+are present in the underlying source data.
 
 Dimensions may now be named, and the presence of shared dimensions
 (i.e., several variables employ a dimension with a given name) along
@@ -432,12 +437,13 @@ DAP2 Grids, so the latter have been removed from DAP4.
 For servers: A DAP2 DDS/DAS (or DDX) is very close to a DAP4 DMR
 (indeed, our C++ library contains a way to build a DMR from a DDS). The
 set of datatypes supported by DAP4 is almost a proper superset of those
-in DAP2, the exception being that DAP2’s Grid type has been removed. To
+in DAP2 (see xref:dap2dap4[Figure 1]]), the 
+exception being that DAP2’s Grid type has been removed. To
 represent a DAP2 Grid in DAP4, the components of the DAP2 Grid are
 retained and the appropriate Shared Dimension and Map elements are added
 to the dataset/group and array. Since the DAP4 '`discrete coverage`'
 type subsumes the DAP2 Grid, it will always be possible to translate a
-DAP2 Grid into DAP4
+DAP2 Grid into DAP4.
 
 For clients: Some of the new data types are more challenging to
 implement than the types included with DAP2. Of particular note are
@@ -447,12 +453,13 @@ Enumerations and the expanded grid (aka '`discrete coverage`') types.
 
 *Summary or the main changes between DAP2 and DAP4 Responses*:
 
-* DAP4 includes only one dataset _metadata_ response, not two;
+* DAP4 includes only one dataset _metadata_ response, the _DMR_ not two;
 * Several Sequences may be individually constrained in one access;
 * Predictable behavior for '`bare`' URLs; and
 * Asynchronous responses
 
-In DAP4 there is a single XML document that encodes the metadata for a
+In DAP4 there is a single XML document, the _DMR_ (see xref:dap2dap4[Figure 1]),
+that encodes the metadata for a
 data source. This response is conceptually similar to, and in some ways
 identical too, the _DDX_ response that is supported by many DAP2
 servers, so it’s organization will be familiar to many people already.
@@ -494,7 +501,7 @@ present an undue burden on some kinds of near-line devices.
 
 * If your server or client already reads DAP2 DDX responses (which were
 never part of the official protocol but are widely used) then adapting
-to the DMR will be very easy since they are very close in structure.
+to the _DMR_ will be very easy since they are very close in structure.
 * Support for the new constraints may take a bit more work since now the
 Constraint Expression and Server Functions have been separated.
 * Clients will benefit from asynchronous response support, but this is a

@@ -24,6 +24,8 @@ cat <<EOF
 EOF
 )
 
+cp -R ../images images
+
 # GitHub Pages requires an functional index.html file.
 # Here we add an index.html that redirects to DMRpp.html
 echo "${index_html}" | tee index.html
