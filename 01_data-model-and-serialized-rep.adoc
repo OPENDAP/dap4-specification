@@ -2020,7 +2020,7 @@ Dataset {
 .DAP4 Subsetting scenarios
 [cols="40,60%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=`
+| *Objective* | *Expression to add after* `?dap4.ce=`
 | Access just `_u_` | `/u`
 | Access just `u` and `v` | `/u;/v`
 a|
@@ -2081,7 +2081,7 @@ Dataset {
 .DAP4 Subsetting scenarios when Dataset has a `Group`
 [cols="40,60%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=`
+| *Objective* | *Expression to add after* `?dap4.ce=`
 | Access 'root' `u` and `v` | `/u;/v`
 | Access 'root' `u`, `v`, and `u` `v` within `inst2` | `/u;/v;/inst2/u;/inst2/v`
 | Access `u` and `v` within `inst2` |  `/inst2/u;/inst2/v`
@@ -2183,7 +2183,7 @@ Dataset {
 .DAP4 Subsetting scenarios by index when Dataset has a Structure
 [cols="30,40%, 30%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=` | *Extra Interpretation*
+| *Objective* | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
 | Access all of `u` | `/u` | Returns all the array
 a|
 Access all of `x` inside `Point`
@@ -2297,7 +2297,7 @@ Dataset {
 .DAP4 Subsetting scenarios by index when Dataset has a Structure
 [cols="30,40%, 30%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=` | *Extra Interpretation*
+| *Objective* | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
 a| 
 Get all of the elements (`Structure`) `Points`, and for each
 of those elements get the elements 8th through 257th array `y`.
@@ -2383,7 +2383,7 @@ Dataset {
 .DAP4 Subsetting scenarios by index when Dataset has a Structure
 [cols="20,55%, 25%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=` | *Extra Interpretation*
+| *Objective* | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
 a|
 Get the first element of `Points` and, for that, get the fields
 `x`, `y` and a slice of `height` within `sounding` 
@@ -2417,7 +2417,7 @@ some disjoint index examples might be as follows.
 .DAP4 Subsetting scenarios by index when Dataset has a Structure
 [cols="35%, 50%", stripes=even]
 |===
-| *Expression to add after* `?dap.ce=` | *Interpretation*
+| *Expression to add after* `?dap4.ce=` | *Interpretation*
 a|
 `/u[10:12,19:23]`
 a|
@@ -2505,7 +2505,7 @@ Dataset {
 .DAP4 Subsetting scenarios by index when Dataset has many `Sequences`
 [cols="30, 35%, 35%", stripes=even]
 |===
-| *Objective* | *Expression to add after* `?dap.ce=` | *Extra Interpretation*
+| *Objective* | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
 | Get all of Sequence `s1` and its elements | `\s1` | No other elements outside of `s1` are included.
 | Get all elements `x` and `y` of Sequence `s1`| `/s1{x;y}` | Same as `\s1` in this case
 | Get all rows of Sequence `s1`, but only field `x` | `/s1`{x}` or `/s1.x` | Each field/child of `s1` behaves like a column.
@@ -2653,7 +2653,7 @@ Dataset {
 .DAP4 Subsetting scenarios with Shared Dimensions
 [cols="5%, 45%, 50%", stripes=even]
 |===
-| | *Expression to add after* `?dap.ce=` | *Extra Interpretation*
+| | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
 a|
 0
 a|
@@ -3069,7 +3069,7 @@ Dataset {
 .DAP4 Subsetting scenarios with Shared Dimensions
 [cols="5%, 45%, 50%", stripes=even]
 |===
-| | *Expression to add after* `?dap.ce=` | *Interpretation*
+| | *Expression to add after* `?dap4.ce=` | *Interpretation*
 a|
 1
 a|
