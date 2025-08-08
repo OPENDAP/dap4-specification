@@ -1854,7 +1854,7 @@ Note that there is semantic limitation in the definition of '`chunk`':
 the number of bytes in the CHUNKDATA must be equal to SIZE.
 
 === Lexical Structure ===
-Each chunk header is defined by 4 8 bit byte values. One 8-bit byte for *Chunk Type*, and three 8-bit bytes
+Each chunk header is defined by four 8-bit byte values. One 8-bit byte for *Chunk Type*, and three 8-bit bytes
 for *Chunk Size*.
 
 ==== Chunk Type
