@@ -1875,7 +1875,7 @@ CHUNKTYPE = [0x00-0x0F]
 ----
 
 ==== Chunk Size
-Chunk Size ia expressed as a sequence of three 8-bit bytes, interpreted as an integer value in network byte order.
+Chunk Size is expressed as a sequence of three 8-bit bytes, interpreted as an integer value in network byte order.
 
 [source,c++]
 ----
