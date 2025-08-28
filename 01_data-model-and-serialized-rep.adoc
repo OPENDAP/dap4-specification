@@ -1573,12 +1573,11 @@ the checksum value will follow the value of the variable in the data part of
 the response. The attribute `_DAP4_Checksum_CRC32_` is NOT added
 to the DMR included in a DAP4 Data Response. Instead, the client is expected to
 retrieve the checksum value for each top-level variable in the DMR from the
-serialized data response and add an Attribute named `_DAP4_Checksum_CRC32_` to
-the associated top-level variable's AttributeTable in DMR.
+serialized data response and (optionally) add an Attribute named `_DAP4_Checksum_CRC32_` to
+the associated top-level variable's AttributeTable in the in memory DMR object.
 
 The DAP4 Data Response with checksums indicates to the client that checksums are
-part of the serialized binary data by setting bit 3 in the very first
-chunk header.
+part of the serialized binary data by setting bit 3 in the very first chunk header.
 See link:#_dap4_chunked_data_representation[ Section 1.7, DAP4
 Chunked Data Representaion ].
 
