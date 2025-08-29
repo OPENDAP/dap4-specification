@@ -1560,7 +1560,7 @@ representation of each top-level variable. The checksum is computed
 before any chunking Section link:#_dap4_chunked_data_representation[[1.7]])
 is applied.
 
-If the request to the server is for a DMR with checksums (no data), then the
+If the request to the server is for a DMR with checksums added (no data), then the
 server will compute the checksum for each top level variable in the DMR and will
 add an Attribute named `_DAP4_Checksum_CRC32_` into the variable's AttributeTable
 in the DMR. Note: _This can have significant performance consequences, since
