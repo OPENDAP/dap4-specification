@@ -1560,10 +1560,12 @@ representation of each top-level variable. The checksum is computed
 before any chunking Section link:#_dap4_chunked_data_representation[[1.7]])
 is applied.
 
-If the request to the server is for a DMR with checksums added (no data), then the
+If the request to the server is for a DMR-only response with checksums added (no data), then the
 server will compute the checksum for each top level variable in the DMR and will
 add an Attribute named `_DAP4_Checksum_CRC32_` into the variable's AttributeTable
-in the DMR. Note: _This can have significant performance consequences, since
+in the DMR.
+
+NOTE: _This can have significant performance consequences, since
 the server may need to read and serialize all the data for all the variables mentioned
 in the DMR even though that data is not transmitted to the client_.
 
@@ -1579,7 +1581,7 @@ the associated top-level variable's AttributeTable in the in memory DMR object.
 The DAP4 Data Response with checksums indicates to the client that checksums are
 part of the serialized binary data by setting bit 3 in the very first chunk header.
 See link:#_dap4_chunked_data_representation[ Section 1.7, DAP4
-Chunked Data Representaion ].
+Chunked Data Representation ].
 
 The default checksum algorithm is CRC32. So the size of each checksum
 inserted in the serialization will be a 32 bit integer. The checksum
