@@ -1868,7 +1868,14 @@ Chunk Type Encoding: A single 8-bit byte, with the bitwise encoding:
     1 = end                (0x01, 00000001)
     2 = error              (0x02, 00000010)
     4 = Little-Endian      (0x04, 00000100)
-    8 = Checksums-Present  (0x08, 00001000) (New! Now with checksum identification!)
+    8 = Checksums-Present  (0x08, 00001000)
+   16 = ReservedForFuture  (0x10, 00010000)
+   32 = ReservedForFuture  (0x20, 00100000)
+   64 = ReservedForFuture  (0x40, 01000000)
+  128 = ReservedForFuture  (0x80, 10000000)
+
+The Chunk Type Encoding byte should be evaluated not as a single value
+but rather by using & for each bit map value.
 */
 
 CHUNKTYPE = [0x00-0x0F]
