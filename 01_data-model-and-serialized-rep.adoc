@@ -1555,27 +1555,33 @@ the client MAY use it for that purpose if it chooses. Note that the
 value of the checksum will change depending on the byte order used to
 serialize the data.
 
-The checksum is made visible to the client by adding an attribute to
-each top-level variable in the DMR. This attribute is named
-"`_DAP4_Checksum_CRC32`".
-
-In all cases, the checksum is computed over the serialized
+The checksum is computed over the serialized
 representation of each top-level variable. The checksum is computed
 before any chunking Section link:#_dap4_chunked_data_representation[[1.7]])
 is applied.
 
-If the request to the server is a dmr-only request, then the server will
-compute the checksum for each variable mentioned in the DMR and will
-insert the "`_DAP4_Checksum_CRC32`" attribute in the DMR. Note that this
-can have significant performance consequences since the server may need
-to read and serialize all of the data for all of the variables mentioned
-in the DMR even though that data is not transmitted to the client.
+If the request to the server is for a DMR-only response with checksums added (no data), then the
+server will compute the checksum for each top level variable in the DMR and will
+add an Attribute named `_DAP4_Checksum_CRC32_` into the variable's AttributeTable
+in the DMR.
 
-If the request to the server is a data request, then the checksum value
-will follow the value of the variable in the data part of the response.
-The computed checksum is appended to the serialized representation for
-transmission to the client. Note that in this case, the client is
-expected to add the "`_DAP4_Checksum_CRC32`" attribute to the DMR.
+NOTE: _This can have significant performance consequences, since
+the server may need to read and serialize all the data for all the variables mentioned
+in the DMR even though that data is not transmitted to the client_.
+
+
+If the request to the server is for a DAP4 Data Response with checksums, then
+the checksum value will follow the value of the variable in the data part of
+the response. The attribute `_DAP4_Checksum_CRC32_` is NOT added
+to the DMR included in a DAP4 Data Response. Instead, the client is expected to
+retrieve the checksum value for each top-level variable in the DMR from the
+serialized data response and (optionally) add an Attribute named `_DAP4_Checksum_CRC32_` to
+the associated top-level variable's AttributeTable in the in memory DMR object.
+
+The DAP4 Data Response with checksums indicates to the client that checksums are
+part of the serialized binary data by setting bit 3 in the very first chunk header.
+See link:#_dap4_chunked_data_representation[ Section 1.7, DAP4
+Chunked Data Representation ].
 
 The default checksum algorithm is CRC32. So the size of each checksum
 inserted in the serialization will be a 32 bit integer. The checksum
@@ -1819,6 +1825,7 @@ the possible flags are as follows:
 | *0*  | A data containing chunk | The last data chunk
 | *1* | The current chunk is not an error chunk. | The current chunk is an "`error chunk`" and contains an error message
 | *2* | The data in this response is encoded using Big-Endian (i.e. network byte order) | The data in this response is encoded using Little-Endian
+| *3* | There are no checksums in the response. | The response includes 32 bit CRC checksum values in the serialized binary data.
 |===
 
 It is possible for a chunk type to have more than one of the flags. So,
@@ -1847,16 +1854,48 @@ Note that there is semantic limitation in the definition of '`chunk`':
 the number of bytes in the CHUNKDATA must be equal to SIZE.
 
 === Lexical Structure ===
+Each chunk header is defined by four 8-bit byte values. One 8-bit byte for *Chunk Type*, and three 8-bit bytes
+for *Chunk Size*.
 
-[source,xml]
+==== Chunk Type
+The Chunk Type is held in the first, single, 8-bit byte of a *Chunk Header*. It is bitwise encoded and multiple
+bits may be set. The bitwise encoding is as follows:
+[source,c++]
 ----
-/* A single 8-bit byte,
-   with the encoding 0 = data, 1 = end, 2 = error, 4 = Little-Endian */
-CHUNKTYPE = '\x00'|'\x01'|'\x02'|'\x4'|'\x06'
-/* A sequence of three 8-bit bytes,
-  interpreted as an integer on network byte order */
-SIZE = [\0x00-\0xFF][\0x00-\0xFF][\0x00-\0xFF]
-CHUNKDATA = [\0x00-\0xFF]*
+/*
+Chunk Type Encoding: A single 8-bit byte, with the bitwise encoding:
+    0 = data               (0x00, 00000000)
+    1 = end                (0x01, 00000001)
+    2 = error              (0x02, 00000010)
+    4 = Little-Endian      (0x04, 00000100)
+    8 = Checksums-Present  (0x08, 00001000)
+   16 = ReservedForFuture  (0x10, 00010000)
+   32 = ReservedForFuture  (0x20, 00100000)
+   64 = ReservedForFuture  (0x40, 01000000)
+  128 = ReservedForFuture  (0x80, 10000000)
+
+The Chunk Type Encoding byte should be evaluated not as a single value
+but rather by using & for each bit map value.
+*/
+
+CHUNKTYPE = [0x00-0x0F]
+----
+
+==== Chunk Size
+Chunk Size is expressed as a sequence of three 8-bit bytes, interpreted as an integer value in network byte order.
+
+[source,c++]
+----
+SIZE = [0x00-0xFF][0x00-0xFF][0x00-0xFF]
+----
+
+==== Chunk Data
+The data content of a chunk is expressed as a sequence of 8-bit byte values whose length is encoded in the SIZE
+section of the Chunk Header.
+
+[source,c++]
+----
+CHUNKDATA = [0x00-0xFF]*
 ----
 
 == Constraints ==
