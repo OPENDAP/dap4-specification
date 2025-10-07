@@ -1013,7 +1013,7 @@ Where the `map` variables are defined elsewhere like this.
   <Dim name="/lat"/>
 </Float32>
 
-<Float32 name="/lon">
+<Float32 name="lon">
   <Dim name="/lon"/>
 </Float32>
 ----
@@ -2197,7 +2197,7 @@ This returns an array of Structures with a single  +
 a|
 Access elements 11th through 20th of array `Point`
 a|
-`\Point[10:19]`
+`/Point[10:19]`
 a|
 Returns 10 Structures.
 a|
@@ -2506,16 +2506,16 @@ Dataset {
 [cols="30, 35%, 35%", stripes=even]
 |===
 | *Objective* | *Expression to add after* `?dap4.ce=` | *Extra Interpretation*
-| Get all of Sequence `s1` and its elements | `\s1` | No other elements outside of `s1` are included.
-| Get all elements `x` and `y` of Sequence `s1`| `/s1{x;y}` | Same as `\s1` in this case
-| Get all rows of Sequence `s1`, but only field `x` | `/s1`{x}` or `/s1.x` | Each field/child of `s1` behaves like a column.
+| Get all of Sequence `s1` and its elements | `/s1` | No other elements outside of `s1` are included.
+| Get all elements `x` and `y` of Sequence `s1`| `/s1{x;y}` | Same as `/s1` in this case
+| Get all rows of Sequence `s1`, but only field `x` | `/s1{x}` or `/s1.x` | Each field/child of `s1` behaves like a column.
 a|
 Get 100 rows of all elements (columns) of `s2` 
 a|
-`/s2{x;y}` or ``/s2[0:99]{x,y}` + 
+`/s2{x;y}` or `/s2[0:99]{x,y}` + 
 or `/s2[]{x;y}`
 a|
-Each x and y have 100 elements. So these expressions are equivalent.
+Each `x` and `y` have 100 elements. So these expressions are equivalent.
 a|
 Slice first 10 rows of Sequence `s2` 
 a|
@@ -2570,7 +2570,7 @@ shown in the examples.
 only the Array and not the Maps, the assumption is made that the
 requester intended to receive _only_ the Array and not the `Maps`. For
 example, the client might have already requested/received the `Maps`. Note
-that in this case the CDMR (link:#_constrained_dmr_objects[Constrained DMR]) included with the data response will still
+that in this case the link:#_constrained_dmr_objects[Constrained DMR] included with the data response will still
 include the _Map_ element(s) for the Array, and the receiving client
 must know that the associated (Map) variable is not present in the
 response.
@@ -2579,7 +2579,7 @@ and that constrain (i.e. '`slice`') those Maps differently. Because this
 can introduce a logical inconsistency, when a local dimension slice is
 applied to an _Array_’s dimension that has a Map, using that local
 dimension slice will cause the Map to be removed from the data
-response’s CDMR.
+response’s Constrained DMR.
 
 The examples make these two cases clearer.
 
@@ -2594,39 +2594,39 @@ The examples make these two cases clearer.
   <Dimension name="nlon" size="50"/>
   
   <Float32 name="lat">
-    <Dim name="\nlat"/>
+    <Dim name="/nlat"/>
   </Float32>
   <Float32 name="lon">
-    <Dim name="\nlon"/>
+    <Dim name="/nlon"/>
   </Float32>
   
   <Float32 name="temp">
-    <Dim name="\nlon"/>
-    <Dim name="\nlat"/>
-    <Map name="\lat"/>
-    <Map name="\lon"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
 
   <Float32 name="sal">
-    <Dim name="\nlon"/>
-    <Dim name="\nlat"/>
-    <Map name="\lat"/>
-    <Map name="\lon"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
   
   <Float32 name="O2">
-    <Dim name="\nlat"/>
-    <Dim name="\nlon"/>
-    <Map name="\lon"/>
-    <Map name="\lat"/>
+    <Dim name="/nlat"/>
+    <Dim name="/nlon"/>
+    <Map name="/lon"/>
+    <Map name="/lat"/>
   </Float32>
   
   <Float32 name="CO2">
-    <Dim name="\nlon"/>
-    <Dim name="\nlat"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
     <Dim size="10"/>
-    <Map name="\lat"/>
-    <Map name="\lon"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
   
 </Dataset>
@@ -2657,89 +2657,89 @@ Dataset {
 a|
 0
 a|
-`\lon[0:99];/lat[10];\temp`
+`/lon[0:99];/lat[10];/temp`
 a|
 *pass:[<span style="color: #CC0000;">Baseline without use of shared dimensions.</span>]*. Returns all of `temp` Array, a subset of `lon` of size 100, and the 11th element of array `lat`.
 a|
 1
 a|
-`\nlat=[0:9];\nlon=[10:19];\lat[nlat];\lon[nlon];\temp[nlat][nlon]`
+`/nlat=[0:9];/nlon=[10:19];/lat[nlat];/lon[nlon];/temp[nlat][nlon]`
 a|
 Will return `nlat`, `nlon`, `lat`, `lon` as 1D arrays of size 10,
 and `temp` a `10x10` array.
 a|
 2
 a|
-`\nlat=[0:9];\nlon=[10:19];\lat[];\lon[];\temp[][]`
+`/nlat=[0:9];/nlon=[10:19];/lat[];/lon[];/temp[][]`
 a|
 Same as 1.
 a|
 3
 a|
-`\nlat=[0:9];\nlon=[10:19];\lat;\lon;\temp`
+`/nlat=[0:9];/nlon=[10:19];/lat;/lon;/temp`
 a|
 Same as 1 and 2.
 a|
 4
 a|
-`\nlat=[0:9];\nlon=[10:19];\lat;\lon;\temp;\sal`
+`/nlat=[0:9];/nlon=[10:19];/lat;/lon;/temp;/sal`
 a|
 Same as 1-3, but `10x10` `sal` array is included.
 a|
 5
 a|
-`\nlat=[0:9];\nlon=[10:19];lat;lon`
+`/nlat=[0:9];/nlon=[10:19];/lat;/lon`
 a|
 This CE requests just the arrays that hold the domain values.
 a|
 6
 a|
-`nlat=[0:9];nlon=[10:19];temp;sal`
+`/nlat=[0:9];/nlon=[10:19];/temp;/sal`
 a|
 This CE requests just the arrays that hold the range values. The `Maps` `lat` and `lon` are not included.
 a|
 7
 a|
-`nlat=[0:9];nlon=[10:19];temp[][];sal[][]`
+`/nlat=[0:9];/nlon=[10:19];/temp[][];/sal[][]`
 a|
 Requests exactly the same data as 6.
 a|
 8
 a|
-`nlat=[0:4:];nlon=[0:4:];CO2`
+`/nlat=[0:4:];/nlon=[0:4:];/CO2`
 a|
 Mixes `shared dimension` and local slicing to return every fourth value in the first two
 dimensions of `CO2`.
 a|
 9
 a|
-`nlat=[0:4:];nlon=[0:4:];CO2[][][0:4:]`
+`/nlat=[0:4:];/nlon=[0:4:];/CO2[][][0:4:]`
 a|
 The variable `CO2` contains an [.underline]#anonymous dimension#. The CE mixes the
 shared dimension slicing, and applies slicing along the third (anonymous) dimension.
 a|
 10
 a|
-`\nlat=[0:4:];\nlon=[0:4:];\CO2[][1][0:4:]`
+`/nlat=[0:4:];/nlon=[0:4:];/CO2[][1][0:4:]`
 a|
 Similar example as 9, but the `[1]` overrides the slicing provided by a shared dimension `nlon`.
 a|
 11
 a|
-`\temp`
+`/temp`
 a|
-Return only Array `temp` (all of it). Maps are not included but will be mentioned in the CDMR.
+Return only Array `temp` (all of it). Maps are not included but will be mentioned in the Constrained DMR.
 a|
 12
 a|
-`lat;lon;temp`
+`/lat;/lon;/temp`
 a|
 Will return three Arrays: The `Map Arrays` `lat` and `lon` and the '`value
 Array`' `temp`.
 a|
 13
 a|
-`\nlat=[0:9];\nlon=[10:19];\lat;\lon;\temp;\sal[][8:9]` 
+`/nlat=[0:9];/nlon=[10:19];/lat;/lon;/temp;/sal[][8:9]` 
 a|
 Similar to 3, except that `sal` uses a local dimension slice for its second dimension. This means
 that it will not use the `nlon=[10:19]` slice that `temp` uses. 
@@ -2755,30 +2755,33 @@ values them selves. Also note that there is no restriction that the same
 shared dimension slices must be used for both requests; like DAP2, each
 request in DAP4 is _stateless_.
 
-For the examples 11 and 12, below are the CDMR responses for each. In summary, it is the 
+For the examples 11 and 12, below are the Constrained DMR responses for each. In summary, it is the 
 requester’s (the client) responsibility to understand that the `Maps` are separate
 variables and must be explicitly requested.
 
+The Constrained DMR for constraint expression (CE) in example 11 is:
+
 [source,xml]
 ----
-The CDMR for the CE `\temp`:
-
 ....
 <Dataset name="vol_1_ce_7">
   <Dimension name="nlat" size="100"/>
   <Dimension name="nlon" size="50"/>
     
   <Float32 name="temp">
-    <Dim name="nlon"/>
-    <Dim name="nlat"/>
-    <Map name="lat"/>
-    <Map name="lon"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
 
 </Dataset>
 ----
 
-The CDMR for the CE `\lat;\lon;\temp`:
+Only `temp` is returned, but the response contains information about its dimensions (which will appeared as 
+named only).
+
+The Constrained DMR for the CE `/lat;/lon;/temp` in example 12 is:
 
 [source,xml]
 ----
@@ -2787,57 +2790,60 @@ The CDMR for the CE `\lat;\lon;\temp`:
   <Dimension name="nlon" size="50"/>
   
   <Float32 name="lat">
-    <Dim name="nlat"/>
+    <Dim name="/nlat"/>
   </Float32>
   <Float32 name="lon">
-    <Dim name="nlon"/>
+    <Dim name="/nlon"/>
   </Float32>
   
   <Float32 name="temp">
-    <Dim name="nlon"/>
-    <Dim name="nlat"/>
-    <Map name="lat"/>
-    <Map name="lon"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
 
 </Dataset>
 ----
 
-In example 13, to avoid a conflict with the `nlon` slice and the fact that that is being applied
-to `temp` and `lon`, applying a local dimension slice to an Array with Maps will cause the 
-associated Maps to be elided from the response’s CDMR. For Arrays with no Maps, this has no effect.
+NOTE: The only difference between example 11 and 12, is that in the response from example 12, 
+the maps `lat` and `lon` are included in the response.
 
-The CDMR for the CE `temp`:
+
+The Constrained DMR for the CE in example 13 is:
 
 [source,xml]
 ----
 <Dataset name="vol_1_ce_7">
   <Dimension name="nlat" size="10"/> <!-- The effect of ''nlat=[0:9]'' -->
-  <Dimension name="nlon" size="10"/> <!-- ... nlon=[10:19] ->
+  <Dimension name="nlon" size="10"/> <!-- ... /nlon=[10:19] -->
   
   <Float32 name="lat">               <!-- We asked for lat and lon -->
-    <Dim name="nlat"/>
+    <Dim name="/nlat"/>
   </Float32>
   <Float32 name="lon">
-    <Dim name="nlon"/>
+    <Dim name="/nlon"/>
   </Float32>
   
   <Float32 name="temp">              <!-- ... and temp -->
-    <Dim name="nlon"/>
-    <Dim name="nlat"/>
-    <Map name="lat"/>
-    <Map name="lon"/>
+    <Dim name="/nlon"/>
+    <Dim name="/nlat"/>
+    <Map name="/lat"/>
+    <Map name="/lon"/>
   </Float32>
 
   <Float32 name="sal">              <!-- ... and sal, but... -->
-    <Dim name="nlon"/>
+    <Dim name="/nlon"/>
     <Dim size=2/>                   <!-- for this dimension, we use a local dim slice -->
-    <Map name="lat"/>               <!-- and thus only one of the two Maps is shown. -->
+    <Map name="/lat"/>               <!-- and thus only one of the two Maps is shown. -->
   </Float32>
     
 </Dataset>
 ----
 
+In this last example, to avoid a conflict with the `nlon` slice and the fact that that is being applied
+to `temp` and `lon`, applying a local dimension slice to an Array with Maps will cause the 
+associated Maps to be elided from the response’s Constrained DMR. For Arrays with no Maps, this has no effect.
 
 === Constrained DMR Objects ===
 
@@ -2849,32 +2855,32 @@ detail elsewhere in this document. In this section the focus is on the
 DMR returned in the first part of the response and how it relates to the
 DMR for the original unconstrained dataset. We refer to the original
 dataset’s DMR as the _DMR_ and the DMR associated with the data response
-as the _CDMR_ (short-hand for Constrained DMR), although a data response
+as the Constrained DMR, although a data response
 can be generated using a null CE, we consider that a constraint, too.
 
 The DMR contains a number of declarations for the dataset: Enumerations,
-Dimensions, Attributes, Groups and Variables. Each DMR and CDMR must
+Dimensions, Attributes, Groups and Variables. Each DMR and Constrained DMR must
 follow the rules for the DMR described in this specification and,
 because DAP4 is a stateless protocol, each response from a server must
 stand on its own. Since a Constraint Expression alters the data returned
 (limiting variables, changing the size of dimensions and so on), it
-stands to reason that the contents of the CDMR will vary for any given
+stands to reason that the contents of the Constrained DMR will vary for any given
 dataset based on the CE. Furthermore, a goal of DAP4 is to specify that
-the CDMR be '`minimal`' containing no unused definitions.
+the Constrained DMR be '`minimal`' containing no unused definitions.
 
 Because filters alter the values of variables, but not whether a
-variable is returned, they have no affect on the CDMR. Only the
+variable is returned, they have no affect on the Constrained DMR. Only the
 subsetting operators will be discussed here.
 
 ==== Enumerations ====
 
-An enumeration is included in the CDMR if and only if some variable or
+An enumeration is included in the Constrained DMR if and only if some variable or
 attribute in the CE references it. A null CE returns the entire dataset,
 so it effectively references every variable.
 
 ==== Shared Dimensions ====
 
-Shared Dimension declarations from the DMR are not included in the CDMR
+Shared Dimension declarations from the DMR are not included in the Constrained DMR
 unless the Shared Dimension is used by a variable that has been
 projected and that variable does not override that shared dimension
 using a local slicing operation.
@@ -2882,7 +2888,7 @@ using a local slicing operation.
 ==== Variables ====
 
 Each clause in the constraint must specify a variable and that variable
-will be declared in the CDMR. The variable must be referenced by a FQN.
+will be declared in the Constrained DMR. The variable must be referenced by a FQN.
 
 ==== Array Variables ====
 
@@ -2918,20 +2924,20 @@ in the projection part of the constraint clause.
 
 ==== Groups ====
 
-Each declaration in the CDMR that corresponds to a declaration in the
+Each declaration in the Constrained DMR that corresponds to a declaration in the
 DMR will cause its containing group (and that group’s parents) to be
-included in the CDMR. This ensures that the FQN for a declaration in the
-CDMR is the same as in the DMR.
+included in the Constrained DMR. This ensures that the FQN for a declaration in the
+Constrained DMR is the same as in the DMR.
 
 ==== Attributes ====
 
-Attributes are unaffected by the CE and are simply included in the CDMR,
+Attributes are unaffected by the CE and are simply included in the Constrained DMR,
 with the stipulation that attributes for variables that are not included
-in the CDMR won’t be part of the CDMR. Essentially DAP4 views those
+in the Constrained DMR won’t be part of the Constrained DMR. Essentially DAP4 views those
 attributes as part of the variables and explicitly excluding the
-variable from the CDMR (by providing a CE that does not include it)
+variable from the Constrained DMR (by providing a CE that does not include it)
 excludes its attributes too. Group level attributes will be included if
-and only that group appears in the CDMR.
+and only that group appears in the Constrained DMR.
 
 There is one situation that bears mention, however. Many datasets
 contain variables which include attributes that describe domain-specific
