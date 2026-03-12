@@ -1157,13 +1157,13 @@ The form on an other XML declaration is as follows.
 
 [source,xml]
 ----
-<otherXML name="name">
+<OtherXML name="name">
 {arbitrary xml}
-</otherXML>
+</OtherXML>
 ----
 
-There are no `<value/>` elements because the value of otherXML is the xml
-inside the `<otherXML>…</otherXML>`. The text content of the otherXML
+There are no `<Value/>` elements because the value of the OtherXML element is the xml
+inside the `<OtherXML>…</OtherXML>`. The text content of the OtherXML
 element must be valid XML and must be distinct from the XML markup used
 to encode elements of the DAP4 data model (i.e., in a practical sense,
 the content of an `<OtherXML>` attribute will be in a namespace other than
