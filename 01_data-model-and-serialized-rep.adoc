@@ -1559,11 +1559,6 @@ The checksum is made visible to the client by adding an attribute to
 each top-level variable in the DMR. This attribute is named
 "`_DAP4_Checksum_CRC32`".
 
-In all cases, the checksum is computed over the serialized
-representation of each top-level variable. The checksum is computed
-before any chunking Section link:#_dap4_chunked_data_representation[[1.7]])
-is applied.
-
 If the request to the server is a dmr-only request, then the server will
 compute the checksum for each variable mentioned in the DMR and will
 insert the "`_DAP4_Checksum_CRC32`" attribute in the DMR. Note that this
@@ -1582,6 +1577,20 @@ inserted in the serialization will be a 32 bit integer. The checksum
 integer will use the same endian representation as for the all other
 data. Note that CRC32 is not a cryptographically strong checksum, so it
 is not suitable for detecting man-in-the-middle attacks.
+
+==== Computing Checksums ====
+
+On the server side, the checksum is computed before any chunking
+Section link:#_dap4_chunked_data_representation[[1.7]]) is
+applied. On the client side, the checksum is computed after any
+chunking is removed from the response.
+
+The checksum is computed over the whole serialized
+representation of each top-level variable. This means
+specifically that the counts for variable-length variables
+are included in the checksum. A variable is variable length
+if it's type is String type or is Sequence type, or is a Structure type
+that has variable-length fields.
 
 _[#Historical_Note]#Historical Note#_
 
